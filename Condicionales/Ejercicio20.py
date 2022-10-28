@@ -22,8 +22,8 @@ CARGAMENTO_INSUFICIENTE_ERROR = 1
 print("Este programa te dice los dias del mes introduciendo el numero de mes ")
 kilo = float(input("Dígame cuantos gramos pesa el pedido(En gramos), por favor! "))
 
-if kilo > 5000:
-    print(f"ERROR. Tiene que hacer un pedido minimo de 5000 gramos ", file=sys.stderr)
+if kilo < 5000:
+    print(f"ERROR. Tiene que hacer un pedido maximo de 5000 gramos ", file=sys.stderr)
     sys.exit(CARGAMENTO_INSUFICIENTE_ERROR)
 else:
     zona = int(input("Dígame la zona donde se va a enviar: "))

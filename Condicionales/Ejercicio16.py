@@ -30,29 +30,28 @@ if domingo not in "SN":
     print(f"ERROR. Tienes que elaborar una respuesta afirmativa o negativa ", file=sys.stderr)
     sys.exit(NI_SI_NI_NO_ERROR)
 
+turno = input("¿Qué turno, mañana o tarde? (M/T)?: ")
+if turno not in "MT":
+    print(f"ERROR. Tienes que elaborar una respuesta mañana o tarde ", file=sys.stderr)
+    sys.exit(NI_MANHANA_NI_TARDE_ERROR)
+
 coste = 0
 
-if domingo == "N":
-    if tiempo <= 5:
-        coste = tiempo * 1
-    elif tiempo <= 8:
-        coste = (tiempo - 5) * 80 + 500
-    elif tiempo <= 10:
-        coste = (tiempo - 8) * 70 + 240 + 500
-    else:
-        coste = (tiempo - 10) * 50 + 140 + 240 + 500
+if tiempo <= 5:
+    coste = tiempo * 1
+elif tiempo <= 8:
+    coste = (tiempo - 5) * 0.80 + 5
+elif tiempo <= 10:
+    coste = (tiempo - 8) * 0.7 + 2.4 + 5
+else:
+    coste = (tiempo - 10) * 0.5 + 1.4 + 2.4 + 5
 
-    turno = input("¿Qué turno, mañana o tarde? (M/T)?: ")
-    if turno not in "MT":
-        print(f"ERROR. Tienes que elaborar una respuesta mañana o tarde ", file=sys.stderr)
-        sys.exit(NI_MANHANA_NI_TARDE_ERROR)
-    if turno == "M":
-        coste = coste * 1.15
-    else:
-        coste = coste * 1.10
 
 if domingo == "S":
-
     coste = coste * 1.03
+elif turno == "M":
+    coste = coste * 1.15
+else:
+    coste = coste * 1.10
 
 print(f"El coste de la llamada: {coste} €.")

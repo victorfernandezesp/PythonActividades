@@ -10,7 +10,7 @@
         En este ejercicio mediante input pedimos el numero de asistentes que acudirán y mediante las condiciones vamos a
         calcular  el importe por niño o el total.
     Author: Victor Fernandez España
-    Curso:  2022-2003
+    Curso:  2022-2023
 """
 import sys
 
@@ -21,18 +21,16 @@ ERROR_NUMERO_ALUMNOS_MENOR_O_IGUAL_0 = 1
 print("Este programa te calcula el precio del viaje según el numero de niños que asistan ")
 
 alumnos = int(input("Introduce el numero de niños que asistirán, por favor! "))
+
 if alumnos <= 0:
     print(f"ERROR. Tiene que haber un numero de alumnos superior a 0", file=sys.stderr)
     sys.exit(ERROR_NUMERO_ALUMNOS_MENOR_O_IGUAL_0)
 
 if alumnos >= 100:
     print(f"El precio por niño es de {ALUMNOS_MAS_O_IGUAL_100} el total es {alumnos * ALUMNOS_MAS_O_IGUAL_100} €")
-
 elif alumnos >= 50:
     print(f"El precio por niño es de {ALUMNOS_MAS_O_IGUAL_50} el total es {alumnos * ALUMNOS_MAS_O_IGUAL_50} €")
-
 elif alumnos >= 30:
     print(f"El precio por niño es de {ALUMNOS_MAS_O_IGUAL_30} el total es {alumnos * ALUMNOS_MAS_O_IGUAL_30} €")
-
 else:
     print(f"El precio por niño es de {4000/alumnos} €")

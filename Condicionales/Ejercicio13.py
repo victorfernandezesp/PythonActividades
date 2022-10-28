@@ -15,14 +15,14 @@
 import sys
 
 print("Este programa te desglosa una cantidad de dinero en billetes y monedas ")
-cantidad = int(input("Introduce la cantidad de dinero, por favor! "))
-if cantidad <= 0:
-    print(f"ERROR.{cantidad} no puede ser desglosado en una cantidad mencionada", file=sys.stderr)
+euros = int(input("Introduce la cantidad de dinero, por favor! "))
+if euros <= 0:
+    print(f"ERROR.{euros} no puede ser desglosado en una cantidad mencionada", file=sys.stderr)
     sys.exit(1)
 
 
-billetes500 = cantidad // 500
-rest500 = cantidad % 500
+billetes500 = euros // 500
+rest500 = euros % 500
 
 billetes200 = rest500 // 200
 rest200 = rest500 % 200
