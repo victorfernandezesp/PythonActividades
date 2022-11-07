@@ -9,11 +9,10 @@ Para hacer una espera en Python podemos usar el método sleep del módulo time.
 import time
 
 print("Este programa hace la funcion de un cronometro")
-hora = 0
-minutos = 0
-segundos = 0
-concatenado = 0
-while concatenado != 235959:
+hora = 23
+minutos = 59
+segundos = 58
+while True:
     segundos += 1
     time.sleep(1)
     if segundos == 60:
@@ -25,6 +24,5 @@ while concatenado != 235959:
         if hora == 24:
             hora -= 24
             break
-    concatenado = (hora + minutos + segundos)
 
     print(f"{hora}:{minutos}:{segundos}")
