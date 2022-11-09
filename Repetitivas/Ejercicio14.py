@@ -15,6 +15,6 @@ for i in range(len(cadena) - len(sub_cadena)):
         break
 
 if es_cadena:
-    print(f"La subcadena {sub_cadena} si se encuentra en la cadena")
+    print(f"La subcadena {sub_cadena} SI se encuentra en la cadena")
 else:
-    print(f"No hay sub-cadena")
+    print(f"La subcadena {sub_cadena} NO se encuentra en la cadena")
