@@ -17,6 +17,7 @@ void = int(input("Introduce cuantas respuestas en blanco tienes tienes, por favo
 incorrect = int(input("Introduce cuantas respuestas incorrectas tienes, por favor "))
 
 summation = correct + void + incorrect
-final_mark = round((float((correct*5 + void*0 + incorrect*-1)/summation)*2), 2)
+total_points = summation * 5
+final_mark = ((correct*5 - incorrect*-1)/total_points)*10
 
-print(f" Tu resultado ha sido de: {final_mark} puntos")
+print(f" Tu nota ha sido de: {round(final_mark,2)} puntos")
