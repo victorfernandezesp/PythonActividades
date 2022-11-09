@@ -16,6 +16,12 @@
 </ul>
 <h3><a href="https://openwebinars.net/academia/curso/introduccion-programacion/3721/#ejercicio-8" name="ejercicio-8"></a>Ejercicio 8</h3>
 <p>Algoritmo que pida dos n&uacute;meros &lsquo;nota&rsquo; y &lsquo;edad&rsquo; y un car&aacute;cter &lsquo;sexo&rsquo; y muestre el&nbsp;<br />mensaje &lsquo;ACEPTADA&rsquo; si la nota es mayor o igual a cinco, la edad es mayor o igual a&nbsp;<br />dieciocho y el sexo es &lsquo;F&rsquo;. En caso de que se cumpla lo mismo, pero el sexo sea &lsquo;M&rsquo;, debe&nbsp;<br />imprimir &lsquo;POSIBLE&rsquo;. Si no se cumplen dichas condiciones se debe mostrar &lsquo;NO ACEPTADA&rsquo;.</p>
+
+<h3>Ejercicio 9</h3>
+<p>Diseña un programa que lea un carácter de teclado y muestre por pantalla el mensaje «Es signo de puntuación» solo si el carácter leído es un signo de puntuación, «Es una letra» si es una letra (da igual que sea mayúscula, minúscula o acentuada), «Es un dígito» si es un dígito, «Es otro carácter» si no es ninguno de los anteriores y «No es un carácter» si el usuario ha introducido más de un carácter.
+
+Pista: quizás te pueda venir bien usar el método find de la clase str.</p>
+
 <h3><a href="https://openwebinars.net/academia/curso/introduccion-programacion/3721/#ejercicio-10" name="ejercicio-10"></a>Ejercicio 10</h3>
 <p>Algoritmo que pida los puntos centrales x1,y1,x2,y2 y los radios r1,r2 de dos&nbsp;<br />circunferencias y las clasifique en uno de estos estados:</p>
 <ul>
