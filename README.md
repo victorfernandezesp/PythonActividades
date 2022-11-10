@@ -2,7 +2,7 @@ Temas con los correspondientes ejercicios:
 
 [REPASO EXAMENES PYTHON TEMAS 1, 2, 3: ](/EjerciciosRepasoExamen10Nov22)
 
-[Examen 10-Nov-2022 ](/Examen10Nov22/)
+[EXAMEN PYTHON TEMAS 1, 2, 3 (10-Nov-2022) ](/Examen10Nov22/)
 
 [TEMA 1 PYTHON: SECUENCIALES](/Secuenciales)
 
