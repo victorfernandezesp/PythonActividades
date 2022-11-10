@@ -10,6 +10,6 @@ Temas con los correspondientes ejercicios:
 
 [TEMA 3 PYTHON: REPETITIVAS](/Repetitivas)
 
-[TEMA 4 PYTHON: ARRAYS UNIDIMENSIONALES](/Arrays)
+[TEMA 4 PYTHON: ARRAYS UNIDIMENSIONALES](/Arrays_Unidimensionales)
 
 [TEMA 4 PYTHON: ARRAYS BIDIMENSIONALES](/Arrays_Bidimensionales/)
