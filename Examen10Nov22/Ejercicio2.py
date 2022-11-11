@@ -16,11 +16,13 @@
 numerador = 4
 denominador = 1
 contador = 0
-
+acumulador = 0
 iteraciones = int(input("¿Cuántas iteraciones quieres que muestre? "))
 while contador <= iteraciones:
     valor_pi = numerador / denominador
-    print(f"Iteración número {contador}. El valor de {numerador}/{denominador} es {valor_pi}")
+    acumulador += valor_pi
     numerador *= -1
     denominador += 2
     contador += 1
+
+print(f" El valor es {acumulador}")
