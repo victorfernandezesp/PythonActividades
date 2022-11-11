@@ -10,4 +10,17 @@
     Autor: Víctor Fernández España
     Curso: 2022-2023
 """
+NUMERO_DE_ELEMENTOS = 15
+array_inicio = []
+array_auxiliar = []
 
+for i in range(NUMERO_DE_ELEMENTOS):
+    numero = input("Escribe un numero: ")
+    array_inicio.append(numero)
+
+array_auxiliar.append(array_inicio.pop())
+for j in array_inicio:
+    array_auxiliar.append(j)
+
+array_inicio = array_auxiliar
+print(f"{array_inicio}")
