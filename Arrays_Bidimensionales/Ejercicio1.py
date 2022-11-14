@@ -9,8 +9,8 @@
     Curso: 2022-2023
 """
 matriz = []
-cant_num_x = int(input("Cuantas Filas (x) va a contener el array que quieres que sume?:          "))
-cant_num_y = int(input("Cuantos Columnas (y) va a contener el array que quieres que sume?:       "))
+cant_num_x = 4
+cant_num_y = 5
 
 # Creamos la Matriz
 for x in range(cant_num_x):      # Recorremos las filas externas porque nos moveremos entre filas cuando una este llena
