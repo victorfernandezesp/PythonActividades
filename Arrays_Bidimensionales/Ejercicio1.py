@@ -9,8 +9,9 @@
     Curso: 2022-2023
 """
 matriz = []
-cant_num_x = 4
-cant_num_y = 5
+suma_total = 0
+cant_num_x = 2
+cant_num_y = 2
 
 # Creamos la Matriz
 for x in range(cant_num_x):      # Recorremos las filas externas porque nos moveremos entre filas cuando una este llena
@@ -30,6 +31,7 @@ for filas in matriz:
 # Sumamos filas
 for x in range(cant_num_x):  # Se recorren las Filas
     print(f"La suma de la fila {x} es: {sum(matriz[x])}")  # Utilizamos la funcion sum() para sumar la fila concreta
+    suma_total += sum(matriz[x])
 
 # Sumamos Columnas
 # Se recorren las Columnas externamente porque nos vamos a mover entre columnas.
@@ -39,3 +41,5 @@ for y in range(cant_num_y):
     for x in range(cant_num_x):     # Se recorren las filas internamente para movernos entre las columnas.
         suma += matriz[x][y]        # Guardamos en la variable suma el valor en la posicion [x][y] de la MATRIZ
     print(f"La suma de la columna {y} es: {suma}")      # Mostramos la matriz
+
+print(f"La suma total es: {suma_total}")  # Suma total
