@@ -1,3 +1,8 @@
+<h2>Utilidades:</h2>
+
+SumaVector.py: Nos explica como sumar los distintos valores de un vector con una sencilla funcion
+
+
 <h2>Ejercicios:</h2>
 
 1. Escribe sentencias Python para realizar cada una de las siguientes tareas: 
