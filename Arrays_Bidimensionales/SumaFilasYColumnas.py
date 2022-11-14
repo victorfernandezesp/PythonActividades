@@ -8,8 +8,8 @@
     Curso: 2022-2023
 """
 matriz = []
-cant_num_x = int(input("Cuantas Filas (x) va a contener el array que quieres que sume?:          "))
-cant_num_y = int(input("Cuantos Columnas (y) va a contener el array que quieres que sume?:       "))
+cant_num_x = int(input("Cuantas Filas (x) va a contener el array que quieres que sume?: "))
+cant_num_y = int(input("Cuantos Columnas (y) va a contener el array que quieres que sume?:  "))
 
 
 # Creamos la Matriz
