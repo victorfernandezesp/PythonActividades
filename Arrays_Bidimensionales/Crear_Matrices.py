@@ -6,11 +6,11 @@
     Curso: 2022-2023
 """
 
-matriz = []
 cant_num_x = int(input("Cuantas Filas (x) va a contener el array?:  "))
 cant_num_y = int(input("Cuantos Columnas (y) va a contener el array?:   "))
 
-
+# FORMA 1
+matriz = []
 # Creamos la Matriz
 
 for x in range(cant_num_x):      # Recorremos las filas externas porque nos moveremos entre filas cuando una este llena
@@ -28,3 +28,13 @@ for filas in matriz:
     for elemento in filas:
         print("{:8.0f}".format(elemento), end=" ")
     print("]")
+
+
+# FORMA 2
+filas = int(input("Cuantas Filas (x) va a contener el array?:  "))
+columnas = int(input("Cuantos Columnas (y) va a contener el array?:   "))
+
+matriz = [[0] * columnas for _ in range(filas)]
+for x in range(filas):
+    for y in range(columnas):
+        matriz[x][y] = int(input(f"Fila {x}, Columna {y}:   "))
