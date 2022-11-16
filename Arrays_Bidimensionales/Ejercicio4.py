@@ -21,5 +21,5 @@ for x in range(filas):
 candidato = 0
 for x in range(filas):
     for y in range(columnas):
-        print("%7d   " % (matriz[x][y]), end="")
-    print(" | %7d" % sum(matriz[x]))
+        print("%5d   " % (matriz[x][y]), end=" ")
+    print("")
