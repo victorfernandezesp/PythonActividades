@@ -13,12 +13,8 @@ array_ordena = []
 for i in range(3):
     num_introduce = int(input("Introduce un numero para almacenarlo en el array: "))
     array_ordena.append(num_introduce)
+
 array_ordena.sort()
 print(f"El numero minimo del array es {array_ordena[0]}")
 array_ordena.reverse()
 print(f"El numero maximo del array es {array_ordena[0]}")
-
-"""
-maximo = len(array_ordena)
-print(f"El numero maximo del array es {array_ordena[maximo]}")
-"""

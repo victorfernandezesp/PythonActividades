@@ -9,8 +9,8 @@
 """
 from random import randrange
 
-filas = 6
-columnas = 10
+filas = 2
+columnas = 3
 posicion_x_maximo = 0
 posicion_y_maximo = 0
 posicion_x_minimo = 0
@@ -21,12 +21,12 @@ vector_guardado = []
 contador_vector = 0
 
 while len(vector_guardado) < filas*columnas:
-    num = randrange(0, 1001)
+    num = randrange(0, 6)
     if num not in vector_guardado:
         vector_guardado.append(num)
     else:
         while num in vector_guardado:
-            num = randrange(0, 1001)
+            num = randrange(0, 6)
 
 matriz = [[0] * columnas for _ in range(filas)]
 for x in range(filas):

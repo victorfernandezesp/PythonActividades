@@ -14,5 +14,5 @@ for i in range(10):
     a.append(num_introducido)
 
 print("Al reves seria asi:")
-a.reverse()
-print(f" {a}")
+for x in a[::-1]:
+    print(f" {x}")

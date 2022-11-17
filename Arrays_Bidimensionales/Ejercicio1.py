@@ -8,26 +8,26 @@
     Autor: Víctor Fernández España
     Curso: 2022-2023
 """
-filas = 4
-columnas = 5
+FILAS = 4
+COLUMNAS = 5
 
-matriz = [[0] * columnas for _ in range(filas)]
-for x in range(filas):
-    for y in range(columnas):
+matriz = [[0] * COLUMNAS for _ in range(FILAS)]
+for x in range(FILAS):
+    for y in range(COLUMNAS):
         matriz[x][y] = int(input(f"Fila {x}, Columna {y}:   "))
 
-for x in range(filas):
-    for y in range(columnas):
+for x in range(FILAS):
+    for y in range(COLUMNAS):
         print("%7d   " % (matriz[x][y]), end="")
     print(" | %7d" % sum(matriz[x]))
 
-for y in range(columnas):
+for y in range(COLUMNAS):
     print("___________", end="")
 print("___________")
 suma_total = 0
-for y in range(columnas):
+for y in range(COLUMNAS):
     suma_columna = 0
-    for x in range(filas):
+    for x in range(FILAS):
         suma_columna += matriz[x][y]
     suma_total += suma_columna
     print("%7d   " % suma_columna, end="")
