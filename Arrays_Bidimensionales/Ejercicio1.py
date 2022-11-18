@@ -10,7 +10,6 @@
 """
 FILAS = 4
 COLUMNAS = 5
-
 matriz = [[0] * COLUMNAS for _ in range(FILAS)]
 for x in range(FILAS):
     for y in range(COLUMNAS):

@@ -7,6 +7,7 @@
     Autor: Víctor Fernández España
     Curso: 2022-2023
 """
+
 from random import randrange
 
 filas = 6
