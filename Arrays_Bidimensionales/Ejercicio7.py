@@ -32,3 +32,30 @@
     Autor: Víctor Fernández España
     Curso: 2022-2023
 """
+import random
+
+asignaturas = ["PG", "LM", "BD", "SI"]
+nombre_apellidos = []
+num_alumnos = 0
+while True:
+    nombre = input("Escribe el nombre del alumno:   ")
+    if nombre == "":
+        break
+    else:
+        apellidos = input("Escribe el apellido del alumno:  ")
+        num_alumnos += 1
+        print(f"Has almacenado {num_alumnos} alumno/os")
+        cadena_completa = nombre[1:7] + " " + apellidos[1:4]
+        nombre_apellidos.append(cadena_completa)
+
+FILAS = num_alumnos
+COLUMNAS = len(asignaturas)
+print("            ", "| PG |  LM |  BD |  SI |")
+matriz = [[0] * COLUMNAS for _ in range(FILAS)]
+for x in range(FILAS):
+    print(f"{nombre_apellidos[x]:3}   ", end="")
+    for y in range(COLUMNAS):
+        numero = (random.random() * 11, 3)
+        matriz[x][y] = 
+        print(f"{matriz[x][y]:3d}   ", end="")
+    print(" ")
