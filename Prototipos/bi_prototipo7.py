@@ -46,6 +46,10 @@ candidato = 0
 nota_mas_alta = 0
 posicion_en_y = 0
 nota_mas_baja = 10
+vector_auxiliar_nota = []
+vector_nota = []
+vector_auxiliar_alumn = []
+vector_alumn = []
 while True:
     nombre = input("Escribe el nombre del alumno:   ")
     if nombre == "":
@@ -208,8 +212,16 @@ while True:
             if modulo in asignaturas:
                 posicion_x_modulo = asignaturas.index(modulo)
                 for x in range(FILAS):
-                    candidato = (matriz[x][posicion_x_modulo])
+                    nota = (matriz[x][posicion_x_modulo])
+                    vector_nota.append(nota)
+                vector_auxiliar_nota = vector_nota.copy()
+                vector_auxiliar_nota.sort()
+                vector_auxiliar_nota.reverse()
+                for x in range(FILAS):
+                    variable_posicion = vector_nota.index(vector_auxiliar_nota[x])
 
+                    print(nombre_apellidos[x])
+                    print(vector_auxiliar_nota[x])
 
                 break
             else:
