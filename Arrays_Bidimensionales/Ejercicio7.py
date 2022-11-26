@@ -18,11 +18,11 @@
         Impresión de las calificaciones del curso completo.
         Impresión de las calificaciones de un alumno en concreto. El programa pedirá nombre y apellidos del alumno y de
         encontrarlo mostrará las calificaciones de todos los módulos de este alumno.
-        Nota media de un módulo. Se pedirá al usuario el nombre del módulo tras lo cuál el programa mostrará la nota
+        Nota media de un módulo. Se pedirá al usuario el nombre del módulo tras lo cual el programa mostrará la nota
         media.
-        Nota máxima en un módulo. Se pedirá al usuario el nombre del módulo tras lo cuál el programa mostrará la nota
+        Nota máxima en un módulo. Se pedirá al usuario el nombre del módulo tras lo cual el programa mostrará la nota
         máxima así como el alumno con la misma.
-        Nota más baja en un módulo. Se pedirá al usuario el nombre del módulo tras lo cuál el programa mostrará la nota
+        Nota más baja en un módulo. Se pedirá al usuario el nombre del módulo tras lo cual el programa mostrará la nota
         más baja así como el alumno con la misma.
         Listado ordenado de los datos con respecto a su nota (de mayor a menor). El programa pedirá el módulo y deberá
         de ser capaz de realizar una ordenación descendente por dicha nota.
@@ -209,8 +209,6 @@ while True:
                 posicion_x_modulo = asignaturas.index(modulo)
                 for x in range(FILAS):
                     candidato = (matriz[x][posicion_x_modulo])
-
-
                 break
             else:
                 print(f"El modulo {modulo} no se encuentra en la base de datos, vuelva a intentarlo.")

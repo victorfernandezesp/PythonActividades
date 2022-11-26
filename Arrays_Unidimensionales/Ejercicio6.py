@@ -9,12 +9,16 @@
     Curso: 2022-2023
 """
 from random import randrange
+
+NUMEROS_A_GUARDAR = 20
+NUM_MAX = 100
+NUM_MIN = 0
 array_ordena = []
 array_aux_pares = []
 array_aux_impares = []
 
-for i in range(20):
-    num_random = randrange(0, 100)
+for i in range(NUMEROS_A_GUARDAR):
+    num_random = randrange(NUM_MIN, NUM_MAX)
     array_ordena.append(num_random)
 print("El array antes de ordenarlo:")
 print(f"{array_ordena}")
