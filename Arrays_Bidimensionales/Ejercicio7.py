@@ -40,12 +40,14 @@ SALIDA_CON_EXITO = 1
 
 asignaturas = ["PG", "LM", "BD", "SI"]
 nombre_apellidos = []
+nombre_nota = []
 num_alumnos = 0
 cadena_mas_larga = 0
 candidato = 0
 nota_mas_alta = 0
 posicion_en_y = 0
 nota_mas_baja = 10
+
 while True:
     nombre = input("Escribe el nombre del alumno:   ")
     if nombre == "":
@@ -131,7 +133,8 @@ while True:
                     posicion_x_alumno = nombre_apellidos.index(busca_nombre)
                     print(" " * len(busca_nombre), "| PG | LM | BD | SI |")
                     print(f"{nombre_apellidos[posicion_x_alumno]:3} ", end="")
-                    print(f"{matriz[posicion_x_alumno]:3d}   ")
+                    for y in range(COLUMNAS):
+                        print(f" {matriz[posicion_x_alumno][y]:3d}", end=" ")
                     break
                 else:
                     print(f"El alumno {busca_nombre} no se encuentra en la base de datos, vuelva a intentarlo.")
@@ -208,7 +211,13 @@ while True:
             if modulo in asignaturas:
                 posicion_x_modulo = asignaturas.index(modulo)
                 for x in range(FILAS):
-                    candidato = (matriz[x][posicion_x_modulo])
+                    nota_modulo = (matriz[x][posicion_x_modulo])
+                    nombre_nota.append([nota_modulo, nombre_apellidos[x]])
+                nombre_nota.sort()
+                nombre_nota.reverse()
+
+                for i in range(FILAS):
+                    print(f"Nota y Alumno: {nombre_nota[i]}")
                 break
             else:
                 print(f"El modulo {modulo} no se encuentra en la base de datos, vuelva a intentarlo.")

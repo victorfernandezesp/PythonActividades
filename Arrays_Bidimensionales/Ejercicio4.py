@@ -10,32 +10,32 @@
 """
 from random import randrange
 
-filas = 6
-columnas = 10
+FILAS = 6
+COLUMNAS = 10
 posicion_x_maximo = 0
 posicion_y_maximo = 0
 posicion_x_minimo = 0
 posicion_y_minimo = 0
-mayor = 0
-menor = 1000
+MAXIMO = 0
+MINIMO = 1000
 
-matriz = [[0] * columnas for _ in range(filas)]
-for x in range(filas):
-    for y in range(columnas):
+matriz = [[0] * COLUMNAS for _ in range(FILAS)]
+for x in range(FILAS):
+    for y in range(COLUMNAS):
         matriz[x][y] = randrange(0, 1001)
-        if mayor < matriz[x][y]:
-            mayor = matriz[x][y]
+        if MAXIMO < matriz[x][y]:
+            MAXIMO = matriz[x][y]
             posicion_x_maximo = x
             posicion_y_maximo = y
-        if menor > matriz[x][y]:
-            menor = matriz[x][y]
+        if MINIMO > matriz[x][y]:
+            MINIMO = matriz[x][y]
             posicion_x_minimo = x
             posicion_y_minimo = y
 
-for x in range(filas):
-    for y in range(columnas):
+for x in range(FILAS):
+    for y in range(COLUMNAS):
         print("%4d   " % (matriz[x][y]), end=" ")
     print("")
 
-print(f"El mayor de la matriz es: {mayor} que esta en la posicion ({posicion_x_maximo}, {posicion_y_maximo})")
-print(f"El menor de la matriz es: {menor} que esta en la posicion ({posicion_x_minimo}, {posicion_y_minimo})")
+print(f"El mayor de la matriz es: {MAXIMO} que esta en la posicion ({posicion_x_maximo}, {posicion_y_maximo})")
+print(f"El menor de la matriz es: {MINIMO} que esta en la posicion ({posicion_x_minimo}, {posicion_y_minimo})")

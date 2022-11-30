@@ -44,7 +44,8 @@
     Autor: Víctor Fernández España
     Curso: 2022-2023
 """
-from bibliotecafunciones.funciones_matematicas_ej2 import voltea, es_capicua, digitos, es_primo, siguiente_primo
+from bibliotecafunciones.funciones_matematicas_ej2 import voltea, es_capicua, digitos, es_primo, siguiente_primo, \
+    quita_por_detras, pega_por_detras
 
 
 def introduce_parametro():
@@ -59,3 +60,24 @@ print(f"Es Primo: {es_primo(numero)}")
 print(f"Siguiente Primo: {siguiente_primo(numero)}")
 print(f"Digitos: {numero} tiene: {digitos(numero)} digitos")
 print(f"Volteado: {voltea(numero)}")
+
+"""print("Numero N, introduce la posicion y sacare el numero correspondiente: ")
+posicion = introduce_parametro()
+print(f"En la posicion {posicion} esta el numero: {numero_n(numero, posicion)}")
+"""
+
+print("Quita por detras: Cuantos quito? ")
+quito = introduce_parametro()
+print(f"El numero con {quito} numero/os quitados de detras es: {quita_por_detras(numero, quito)}")
+
+"""print("Quita por delante: Cuantos quito? ")
+quito = introduce_parametro()
+print(f"El numero con {quito} numero/os quitados de delante es: {quita_por_delante(numero, quito)}")"""
+
+print("Pega por detras: ¿Que numero de un digito pego? ")
+pego = introduce_parametro()
+print(f"El numero con el numero {pego} pegado por detras es: {pega_por_detras(numero, pego)}")
+
+"""print("Pega por delante: ¿Que numero de un digito pego? ")
+pego = introduce_parametro()
+print(f"El numero con el numero {pego} pegado por delante es: {pega_por_delante(numero, pego)}")"""

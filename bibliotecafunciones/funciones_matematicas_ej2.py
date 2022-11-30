@@ -1,4 +1,7 @@
+import sys
 from math import sqrt
+
+ERROR_FUERA_DE_RANGO = 1
 
 
 def voltea(numero):
@@ -49,4 +52,37 @@ def siguiente_primo(numero):
     while not es_primo(numero):
         numero += 1
 
+    return numero
+
+
+def numero_n(numero, posicion):
+    contador = 0
+    if posicion >= digitos(numero) or posicion < 0:
+        print("ERROR. La posicion es superior o inferior al numero de digitos que tiene el numero", file=sys.stderr)
+        sys.exit(ERROR_FUERA_DE_RANGO)
+
+    aux_numero = numero
+    while contador != posicion:
+        aux_numero = aux_numero // 10 ** contador
+
+
+def quita_por_delante(numero, quita):
+    numero = numero % 10 ** quita
+    return numero
+
+
+def quita_por_detras(numero, quita):
+    numero = numero // 10 ** quita
+    return numero
+
+
+def pega_por_detras(numero, pego):
+    numero = numero * 10 + pego
+    return numero
+
+
+def pega_por_delante(numero, pego):
+    auxiliar = digitos(numero)
+    numero = numero * 0.1 * auxiliar + pego
+    numero = numero * auxiliar
     return numero
