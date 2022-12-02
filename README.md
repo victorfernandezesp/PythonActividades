@@ -1,8 +1,8 @@
 Temas con los correspondientes ejercicios:
 
-[EJERCICIOS REPASO EXAMENES: ](/EjerciciosRepasoExamen/)
+[EJERCICIOS REPASO EXAMENES ](/EjerciciosRepasoExamen/)
 
-[EXAMENES: ](/Examenes//)
+[EXAMENES ](/Examenes//)
 
 [TEMA 1 PYTHON: SECUENCIALES](/Secuenciales)
 
