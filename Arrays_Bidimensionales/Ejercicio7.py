@@ -216,8 +216,9 @@ while True:
                 nombre_nota.sort()
                 nombre_nota.reverse()
 
-                for i in range(FILAS):
-                    print(f"Nota y Alumno: {nombre_nota[i]}")
+                print(f"Nota y Alumno:")
+                for x in range(FILAS):
+                    print(f"Nota y Alumno: {nombre_nota[x]}")
                 break
             else:
                 print(f"El modulo {modulo} no se encuentra en la base de datos, vuelva a intentarlo.")

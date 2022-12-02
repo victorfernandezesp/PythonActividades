@@ -45,7 +45,8 @@
     Curso: 2022-2023
 """
 from bibliotecafunciones.funciones_matematicas_ej2 import voltea, es_capicua, digitos, es_primo, siguiente_primo, \
-    quita_por_detras, pega_por_detras
+    quita_por_detras, pega_por_detras, junta_numeros, trozo_de_numero, quita_por_delante, pega_por_delante, digito_n, \
+    posicion_de_digito
 
 
 def introduce_parametro():
@@ -61,23 +62,35 @@ print(f"Siguiente Primo: {siguiente_primo(numero)}")
 print(f"Digitos: {numero} tiene: {digitos(numero)} digitos")
 print(f"Volteado: {voltea(numero)}")
 
-"""print("Numero N, introduce la posicion y sacare el numero correspondiente: ")
+print("Numero N, introduce la posicion y sacare el numero correspondiente: ")
 posicion = introduce_parametro()
-print(f"En la posicion {posicion} esta el numero: {numero_n(numero, posicion)}")
-"""
+print(f"En la posicion {posicion} esta el numero: {digito_n(numero, posicion)}")
+
+
+print("Posicion De Digito, introduce el numero y sacare la posicion correspondiente: ")
+numero_introducido = introduce_parametro()
+print(f"En numero {numero_introducido} esta en la posicion: {posicion_de_digito(numero, numero_introducido)}")
 
 print("Quita por detras: Cuantos quito? ")
 quito = introduce_parametro()
 print(f"El numero con {quito} numero/os quitados de detras es: {quita_por_detras(numero, quito)}")
 
-"""print("Quita por delante: Cuantos quito? ")
+print("Quita por delante: Cuantos quito? ")
 quito = introduce_parametro()
-print(f"El numero con {quito} numero/os quitados de delante es: {quita_por_delante(numero, quito)}")"""
+print(f"El numero con {quito} numero/os quitados de delante es: {quita_por_delante(numero, quito)}")
 
 print("Pega por detras: ¿Que numero de un digito pego? ")
 pego = introduce_parametro()
 print(f"El numero con el numero {pego} pegado por detras es: {pega_por_detras(numero, pego)}")
 
-"""print("Pega por delante: ¿Que numero de un digito pego? ")
+print("Pega por delante: ¿Que numero de un digito pego? ")
 pego = introduce_parametro()
-print(f"El numero con el numero {pego} pegado por delante es: {pega_por_delante(numero, pego)}")"""
+print(f"El numero con el numero {pego} pegado por delante es: {pega_por_delante(numero, pego)}")
+
+print(f"Trozo de Numero: El numero resultante de la primera posicion y la ultima posicion es : "
+      f"{trozo_de_numero(numero)}")
+
+print("JuntaNumeros: ¿Que numero quieres que junte? ")
+junta1 = introduce_parametro()
+junta2 = introduce_parametro()
+print(f"El numero {junta1} juntado con el numero {junta2} da como resultado: {junta_numeros(junta1, junta2)}")

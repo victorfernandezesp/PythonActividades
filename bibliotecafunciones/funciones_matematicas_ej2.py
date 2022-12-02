@@ -55,20 +55,27 @@ def siguiente_primo(numero):
     return numero
 
 
-def numero_n(numero, posicion):
-    contador = 0
+def digito_n(numero, posicion):
     if posicion >= digitos(numero) or posicion < 0:
         print("ERROR. La posicion es superior o inferior al numero de digitos que tiene el numero", file=sys.stderr)
         sys.exit(ERROR_FUERA_DE_RANGO)
+    else:
+        auxiliar = numero // 10 ** (digitos(numero) - (posicion + 1))
+        auxiliar = auxiliar % 10
+    return auxiliar
 
-    aux_numero = numero
-    while contador != posicion:
-        aux_numero = aux_numero // 10 ** contador
+
+def posicion_de_digito(numero, digito):
+    for i in range(digitos(numero)):
+        if digito == digito_n(numero, i):
+            return i
+    return -1
 
 
 def quita_por_delante(numero, quita):
-    numero = numero % 10 ** quita
-    return numero
+    auxiliar_1 = quita_por_detras(voltea(numero), quita)
+
+    return voltea(auxiliar_1)
 
 
 def quita_por_detras(numero, quita):
@@ -82,7 +89,17 @@ def pega_por_detras(numero, pego):
 
 
 def pega_por_delante(numero, pego):
-    auxiliar = digitos(numero)
-    numero = numero * 0.1 * auxiliar + pego
-    numero = numero * auxiliar
-    return numero
+    auxiliar_1 = pega_por_detras(voltea(numero), pego)
+
+    return voltea(auxiliar_1)
+
+
+def trozo_de_numero(numero):
+    aux_delante = quita_por_detras(numero, digitos(numero) - 1)
+    aux_detras = quita_por_delante(numero, digitos(numero) - 1)
+    return aux_delante * 10 + aux_detras
+
+
+def junta_numeros(junta1, junta2):
+    numero_juntado = junta1 * 10 ** digitos(junta2) + junta2
+    return numero_juntado
