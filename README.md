@@ -18,3 +18,6 @@ Temas con los correspondientes ejercicios:
 
 [BIBLIOTECA DE FUNCIONES](/bibliotecafunciones/)
 
+[PAQUETE DE FUNCIONES UTIL](/util/)
+
+

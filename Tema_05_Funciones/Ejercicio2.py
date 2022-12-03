@@ -44,9 +44,9 @@
     Autor: Víctor Fernández España
     Curso: 2022-2023
 """
-from bibliotecafunciones.funciones_matematicas.funciones_matematicas_tema05_ej2 import voltea, es_capicua, digitos, es_primo, siguiente_primo, \
-    quita_por_detras, pega_por_detras, junta_numeros, trozo_de_numero, quita_por_delante, pega_por_delante, digito_n, \
-    posicion_de_digito
+from bibliotecafunciones.funciones_matematicas.funciones_matematicas_tema05_ej2 import voltea, es_capicua, digitos, \
+    es_primo, siguiente_primo, quita_por_detras, pega_por_detras, junta_numeros, trozo_de_numero, quita_por_delante, \
+    pega_por_delante, digito_n, posicion_de_digito
 
 
 def introduce_parametro():
@@ -56,7 +56,7 @@ def introduce_parametro():
 
 numero = introduce_parametro()
 
-print(f"Es capicua: {es_capicua(numero, voltea(numero))}")
+print(f"Es capicua: {es_capicua(numero)}")
 print(f"Es Primo: {es_primo(numero)}")
 print(f"Siguiente Primo: {siguiente_primo(numero)}")
 print(f"Digitos: {numero} tiene: {digitos(numero)} digitos")

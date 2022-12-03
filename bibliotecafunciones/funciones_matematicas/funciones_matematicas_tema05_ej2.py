@@ -22,7 +22,8 @@ def voltea(numero):
     return numero_volteado
 
 
-def es_capicua(numero, volteado):
+def es_capicua(numero):
+    volteado = voltea(numero)
     if numero == volteado and numero > 9:
         return True
     else:
