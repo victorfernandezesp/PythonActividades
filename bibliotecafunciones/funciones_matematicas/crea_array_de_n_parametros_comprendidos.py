@@ -13,3 +13,11 @@ def crea_array_comprendido_random(minimo, maximo, longitud):
     for i in range(longitud):
         array.append(randrange(minimo, maximo))
     return array
+
+
+def crea_array():
+    longitud = int(input("¿Cuál va a ser la longitud de tu array?   "))
+    array = []
+    for i in range(longitud):
+        array.append(int(input(f"Inserte el numero en la posicion {i}/{longitud - 1}:    ")))
+    return array
