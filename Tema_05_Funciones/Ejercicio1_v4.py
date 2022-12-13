@@ -21,7 +21,6 @@ import sys
 from time import sleep
 
 from bibliotecafunciones.funciones_menu.menu import menu
-from bibliotecafunciones.funciones_menu.menu import opcion_escogida
 
 
 def suma(a, b):
@@ -60,12 +59,10 @@ numero_a = 0
 numero_b = 0
 
 parametros_introducido = False
-vector_menu = ["Introducir los parametros", "Sumar", "Restar", "Multiplicar", "Dividir", "Terminar"]
 
 while True:
     sleep(0.5)
-    menu(vector_menu)
-    opcion = opcion_escogida()
+    opcion = menu("Introducir los parametros", "Sumar", "Restar", "Multiplicar", "Dividir", "Terminar")
     match opcion:
         case 1:
             numero_a = introduce_parametro()

@@ -20,9 +20,9 @@ from bibliotecafunciones.funciones_matematicas.crea_array_de_n_parametros_compre
 
 from bibliotecafunciones.funciones_matematicas.funciones_matematicas_tema05_ej2 import es_primo, es_capicua
 
-from bibliotecafunciones.funciones_menu.menu import menu, opcion_escogida
+from bibliotecafunciones.funciones_menu.menu import menu
 
-from util.statistics import mode, median, minimum, maximum
+from Tema_05_Funciones.util.statistics import mode, median, minimum, maximum
 
 SALIDA_PROGRAMA = 1
 MINIMO_CASO_1 = 1
@@ -42,17 +42,16 @@ MINIMO_CASO_6 = 1
 MAXIMO_CASO_6 = 5
 LONGITUD_CASO_6 = 10
 
-vector_menu = ["Muestra los números primos que hay entre 1 y 1000.",
-               "Muestra los números capicúa que hay entre 1 y 99999.",
-               "Muestra la moda de 50 números enteros aleatorios entre 1 y 10.",
-               "Muestra la mediana de 10 números enteros aleatorios entre 1 y 50.",
-               "Muestra el máximo y mínimo de 1000 números enteros aleatorios entre 1 y 50000.",
-               "Muestra la varianza de 10 números enteros aleatorios entre 1 y 5.",
-               "Salir del programa."]
 while True:
     sleep(0.5)
-    menu(vector_menu)
-    opcion = opcion_escogida()
+
+    opcion = menu("Muestra los números primos que hay entre 1 y 1000.",
+                  "Muestra los números capicúa que hay entre 1 y 99999.",
+                  "Muestra la moda de 50 números enteros aleatorios entre 1 y 10.",
+                  "Muestra la mediana de 10 números enteros aleatorios entre 1 y 50.",
+                  "Muestra el máximo y mínimo de 1000 números enteros aleatorios entre 1 y 50000.",
+                  "Muestra la varianza de 10 números enteros aleatorios entre 1 y 5.",
+                  "Salir del programa.")
     match opcion:
 
         case 1:

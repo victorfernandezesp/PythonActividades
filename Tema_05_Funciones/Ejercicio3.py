@@ -30,7 +30,7 @@
     Autor: Víctor Fernández España
     Curso: 2022-2023
 """
-from util.statistics import maximum, minimum, mean, \
+from Tema_05_Funciones.util.statistics import maximum, minimum, mean, \
     variance, median, mode
 
 
