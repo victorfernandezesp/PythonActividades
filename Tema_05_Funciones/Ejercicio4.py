@@ -22,7 +22,7 @@ from bibliotecafunciones.funciones_matematicas.funciones_matematicas_tema05_ej2 
 
 from bibliotecafunciones.funciones_menu.menu import menu
 
-from Tema_05_Funciones.util.statistics import mode, median, minimum, maximum
+from Tema_05_Funciones.util.statistics import mode, median, minimum, maximum, variance
 
 SALIDA_PROGRAMA = 1
 MINIMO_CASO_1 = 1
@@ -59,16 +59,14 @@ while True:
 
             for i in range(len(array)):
                 if es_primo(array[i]):
-                    print(f"{array[i]},", end=" ")
-            print("     ")
+                    print(f"{i}")
 
         case 2:
             array = crea_array_comprendido(MINIMO_CASO_2, MAXIMO_CASO_2)
 
             for i in range(len(array)):
                 if es_capicua(array[i]):
-                    print(f"{array[i]},", end=" ")
-            print("     ")
+                    print(f"{i}")
 
         case 3:
             array = crea_array_comprendido_random(MINIMO_CASO_3, MAXIMO_CASO_3, LONGITUD_CASO_3)
@@ -93,7 +91,7 @@ while True:
         case 6:
             array = crea_array_comprendido_random(MINIMO_CASO_6, MAXIMO_CASO_6, LONGITUD_CASO_6)
             print(f"El array es: {array}")
-            print(f"La mediana es: {median(array)}")
+            print(f"La varianza es: {variance(array)}")
 
         case 7:
             sleep(1.25)

@@ -4,7 +4,8 @@
         Pide un DNI y comprueba que es correcto, será correcto si tiene 9 caracteres y la letra es correcta.
         Para calcular la letra se divide el número entre 23 y el resto indica la posición de la cadena de letras:
         "TRWAGMYFPDXBNJZSQVHLCKE"
-VERSION CON BUCLE
+
+        VERSION CON BUCLE
 
     Autor: Víctor Fernández España
     Curso: 2022-2023

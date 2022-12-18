@@ -1,4 +1,4 @@
-def menu(u):
+def menu(*u):
     contador = 1
     print("Menu de opciones:")
     print("Selecciona una de las siguientes opciones:   ")
@@ -6,8 +6,7 @@ def menu(u):
         print(f"{contador}. {i}")
         contador += 1
     print('-------------------------------------------------------------------------------------------------------')
-
-
-def opcion_escogida():
     x = int(input("¿Que vas a selecionar?    "))
     return x
+
+

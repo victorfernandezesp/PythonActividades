@@ -5,6 +5,8 @@ ERROR_FUERA_DE_RANGO = 1
 
 
 def voltea(numero):
+    signo_num = signo(numero)
+    numero = abs(numero)
     contador = digitos(numero)
     numero_volteado = 0
 
@@ -19,18 +21,19 @@ def voltea(numero):
             else:
                 numero_volteado += numero
 
-    return numero_volteado
+    return signo_num * numero_volteado
 
 
 def es_capicua(numero):
     volteado = voltea(numero)
-    if numero == volteado and numero > 9:
+    if numero == volteado:
         return True
     else:
         return False
 
 
 def digitos(numero):
+    numero = abs(numero)
     contador = 1
     while numero > 10:
         numero = numero // 10
@@ -40,6 +43,8 @@ def digitos(numero):
 
 def es_primo(posible_primo):
     primo = False
+    if posible_primo < 0:
+        return False
     divisor = 2
     while divisor <= sqrt(posible_primo) and not primo:
         if posible_primo % divisor == 0:
@@ -49,6 +54,8 @@ def es_primo(posible_primo):
 
 
 def siguiente_primo(numero):
+    if numero < 0:
+        return 2
     numero += 1
     while not es_primo(numero):
         numero += 1
@@ -104,3 +111,9 @@ def trozo_de_numero(numero):
 def junta_numeros(junta1, junta2):
     numero_juntado = junta1 * 10 ** digitos(junta2) + junta2
     return numero_juntado
+
+
+def signo(num):
+    if num < 0:
+        return -1
+    return 1
