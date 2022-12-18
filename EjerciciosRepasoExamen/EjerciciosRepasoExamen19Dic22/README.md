@@ -43,6 +43,7 @@ teniendo en cuenta esa cantidad de aceite y el precio de aceite solicitado al fi
 de datos. De forma opcional (se valora como extra) que este listado salga ordenado por total de aceituna 
 traída (de mayor a menor)
 </p>
+<p><h3>Ejercicio 3<br /></h3></p>
 <p>Programa para gestionar los datos que genera un concurso de pesca. En este concurso han participado pescadores de una serie de provincias españolas (hay un número indeterminado a priori de pescadores de cada provincia).
 Cada pescador, al finalizar la jornada, presenta un máximo de 4 capturas (sus 4 mejores pescados) al concurso (pero puede que no haya pescado 4 o que haya pescado más).
 
