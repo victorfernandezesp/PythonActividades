@@ -16,6 +16,8 @@ Temas con los correspondientes ejercicios:
 
 [TEMA 5 PYTHON: FUNCIONES](/Tema_05_Funciones/)
 
+[TEMA 6 PYTHON: POO](/Tema_06_POO/)
+
 [BIBLIOTECA DE FUNCIONES](/bibliotecafunciones/)
 
 
