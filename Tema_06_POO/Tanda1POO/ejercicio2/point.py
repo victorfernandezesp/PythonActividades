@@ -33,13 +33,17 @@ class Point:
         self.__coo_x = x
         self.__coo_y = y
 
-    def __str__(self):
-        return f"Los puntos invertidos es igual a: ({self.__coo_x}, {self.__coo_y})"
+    @coo_x.setter
+    def coo_x(self, value):
+        if not isinstance(value, int):
+            raise ValueError(f"{value} no es un objeto de tipo entero.")
+        self.__coo_x = value
 
     @coo_y.setter
     def coo_y(self, value):
+        if not isinstance(value, int):
+            raise ValueError(f"{value} no es un objeto de tipo entero.")
         self.__coo_y = value
 
-    @coo_x.setter
-    def coo_x(self, value):
-        self.__coo_x = value
+    def __str__(self):
+        return f"Los puntos invertidos es igual a: ({self.__coo_x}, {self.__coo_y})"

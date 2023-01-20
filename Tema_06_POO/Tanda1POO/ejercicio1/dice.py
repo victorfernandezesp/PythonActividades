@@ -10,14 +10,14 @@
 from random import randrange
 
 
-class Dice:
+class Dado:
     def __init__(self):
-        self.cara = 0
+        self.__cara = 0
 
     def tirar_dado(self):
         cara_salida = randrange(1, 6)
-        self.cara = cara_salida
+        self.__cara = cara_salida
         return cara_salida
 
     def __str__(self):
-        return f"El numero que ha salido es: {self.cara}"
+        return f"El numero que ha salido es: {self.__cara}"

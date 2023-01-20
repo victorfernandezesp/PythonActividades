@@ -7,8 +7,8 @@
     Autor: Víctor Fernández España
     Curso: 2022-2023
 """
-from Tema_06_POO.Tanda1POO.ejercicio1.dice import Dice
+from Tema_06_POO.Tanda1POO.ejercicio1.dice import Dado
 
-dado = Dice()
+dado = Dado()
 dado.cara = dado.tirar_dado()
 print(dado)

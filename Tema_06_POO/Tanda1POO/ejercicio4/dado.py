@@ -33,10 +33,14 @@ class Dado:
 
     @caras.setter
     def caras(self, value):
+        if not isinstance(value, int):
+            raise ValueError(f"{value} no es un objeto de tipo entero.")
         self.__caras = value
 
     @cara_superior.setter
     def cara_superior(self, value):
+        if not isinstance(value, int):
+            raise ValueError(f"{value} no es un objeto de tipo entero.")
         self.__cara_superior = value
 
     def roll(self):
@@ -45,6 +49,8 @@ class Dado:
 
     @numero_salido.setter
     def numero_salido(self, value):
+        if not isinstance(value, int):
+            raise ValueError(f"{value} no es un objeto de tipo entero.")
         self.__numero_salido = value
 
     def __str__(self):
