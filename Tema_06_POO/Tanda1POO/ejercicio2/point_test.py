@@ -16,6 +16,6 @@ punto = Point()
 punto.coo_x = 2
 punto.coo_y = 4
 
-print(punto)
-punto.invert_coordinates(punto.coo_x, punto.coo_y)
+print(f"Punto: ({punto.coo_x},{punto.coo_y})")
+punto.invert_coordinates()
 print(punto)
