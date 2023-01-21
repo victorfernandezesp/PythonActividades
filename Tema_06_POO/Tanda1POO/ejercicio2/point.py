@@ -45,12 +45,3 @@ class Point:
 
     def __repr__(self):
         return f"{self.__class__.__name__}({self.__coo_x}, {self.__coo_y})"
-
-    @property
-    def x(self):
-        return self.__x
-
-    @x.setter
-    @typechecked
-    def x(self, value: int):
-        self.__x = value

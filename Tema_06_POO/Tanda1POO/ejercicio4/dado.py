@@ -32,7 +32,6 @@ class Dado:
     @caras.setter
     @typechecked
     def caras(self, value: int):
-
         self.__caras = value
 
     @cara_superior.setter
@@ -46,3 +45,6 @@ class Dado:
 
     def __str__(self):
         return f"Ha salido {self.__cara_superior}"
+
+    def __repr__(self):
+        return f"{self.__class__.__name__}(Ha salido {self.__cara_superior})"
