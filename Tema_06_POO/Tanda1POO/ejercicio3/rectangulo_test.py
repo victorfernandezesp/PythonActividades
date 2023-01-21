@@ -12,17 +12,10 @@
 from rectangulo import Rectangulo
 from Tema_06_POO.Tanda1POO.ejercicio2.point import Point
 
-punto1 = Point()
-punto1.coo_x = 2
-punto1.coo_y = 2
+punto1 = Point(2, 2)
 
-punto2 = Point()
-punto2.coo_x = 4
-punto2.coo_y = 8
+punto2 = Point(4, 8)
 
-rectangulo = Rectangulo()
-rectangulo.base = rectangulo.distancia_entre_puntos(punto1.coo_x, punto2.coo_x)
-rectangulo.altura = rectangulo.distancia_entre_puntos(punto1.coo_y, punto2.coo_y)
-
-print(f"Perimetro: {rectangulo.calculo_perimetro(rectangulo.base, rectangulo.altura)}")
-print(f"Area: {rectangulo.calculo_area(rectangulo.base, rectangulo.altura)}")
+rectangulo = Rectangulo(punto1, punto2)
+print(f"Perimetro: {rectangulo.calcular_perimetro()}")
+print(f"Area: {rectangulo.calcular_area()}")

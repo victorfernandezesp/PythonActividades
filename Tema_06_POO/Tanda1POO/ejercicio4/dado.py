@@ -12,12 +12,14 @@
 """
 from random import randrange
 
+from typeguard import typechecked
+
 
 class Dado:
-    def __init__(self):
-        self.cara_superior = 0
-        self.caras = 6
-        self.numero_salido = 0
+    @typechecked
+    def __init__(self, cara_superior: int = 0, caras: int = 6):
+        self.cara_superior = cara_superior
+        self.caras = caras
 
     @property
     def caras(self):
@@ -27,31 +29,20 @@ class Dado:
     def cara_superior(self):
         return self.__cara_superior
 
-    @property
-    def numero_salido(self):
-        return self.__numero_salido
-
     @caras.setter
-    def caras(self, value):
-        if not isinstance(value, int):
-            raise ValueError(f"{value} no es un objeto de tipo entero.")
+    @typechecked
+    def caras(self, value: int):
+
         self.__caras = value
 
     @cara_superior.setter
-    def cara_superior(self, value):
-        if not isinstance(value, int):
-            raise ValueError(f"{value} no es un objeto de tipo entero.")
+    @typechecked
+    def cara_superior(self, value: int):
         self.__cara_superior = value
 
     def roll(self):
-        self.numero_salido = randrange(1, self.caras)
-        return self.__numero_salido
-
-    @numero_salido.setter
-    def numero_salido(self, value):
-        if not isinstance(value, int):
-            raise ValueError(f"{value} no es un objeto de tipo entero.")
-        self.__numero_salido = value
+        self.__cara_superior = randrange(1, self.caras)
+        return self.__cara_superior
 
     def __str__(self):
-        return f"Ha salido {self.__numero_salido}"
+        return f"Ha salido {self.__cara_superior}"

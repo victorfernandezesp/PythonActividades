@@ -9,64 +9,59 @@
     Autor: Víctor Fernández España
     Curso: 2022-2023
 """
+from typeguard import typechecked
 
 
 class Rectangulo:
-    def __init__(self):
-        self.perimetro = 0
-        self.area = 0
-        self.distancia = 0
-        self.base = 0
-        self.altura = 0
+    def __init__(self, punto1, punto2):
+        self.x1 = punto1.coo_x
+        self.y1 = punto1.coo_y
+        self.x2 = punto2.coo_x
+        self.y2 = punto2.coo_y
 
     @property
-    def base(self):
-        return self.__base
+    def x1(self):
+        return self.__x1
+
+    @x1.setter
+    @typechecked
+    def x1(self, value: int):
+        self.__x1 = value
 
     @property
-    def altura(self):
-        return self.__altura
+    def y1(self):
+        return self.__y1
+
+    @y1.setter
+    @typechecked
+    def y1(self, value: int):
+        self.__y1 = value
 
     @property
-    def perimetro(self):
-        return self.__perimetro
+    def x2(self):
+        return self.__x2
+
+    @x2.setter
+    @typechecked
+    def x2(self, value: int):
+        self.__x2 = value
 
     @property
-    def area(self):
-        return self.__area
+    def y2(self):
+        return self.__y2
 
-    @property
-    def distancia(self):
-        return self.__distancia
+    @y2.setter
+    @typechecked
+    def y2(self, value: int):
+        self.__y2 = value
 
-    def distancia_entre_puntos(self, c1, c2):
-        self.distancia = abs(c2) - abs(c1)
-        return self.__distancia
+    def calcular_perimetro(self):
+        perimetro = (2 * abs(self.__x2 - self.__x1)) + (2 * abs(self.__y2 - self.__y1))
+        return perimetro
 
-    @distancia.setter
-    def distancia(self, value):
-        self.__distancia = value
+    def calcular_area(self):
+        area = (abs(self.__x2 - self.__x1)) * (abs(self.__y2 - self.__y1))
+        return area
 
-    @base.setter
-    def base(self, value):
-        self.__base = value
-
-    @altura.setter
-    def altura(self, value):
-        self.__altura = value
-
-    def calculo_perimetro(self, base, altura):
-        self.perimetro = (base * 2) + (altura * 2)
-        return self.__perimetro
-
-    def calculo_area(self, base, altura):
-        self.area = base * altura
-        return self.__area
-
-    @perimetro.setter
-    def perimetro(self, value):
-        self.__perimetro = value
-
-    @area.setter
-    def area(self, value):
-        self.__area = value
+    def __repr__(self):
+        return f"{self.__class__.__name__}()"
