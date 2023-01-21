@@ -12,9 +12,7 @@
 """
 from point import Point
 
-punto = Point()
-punto.coo_x = 2
-punto.coo_y = 4
+punto = Point(2, 4)
 
 print(f"Punto: ({punto.coo_x},{punto.coo_y})")
 punto.invert_coordinates()

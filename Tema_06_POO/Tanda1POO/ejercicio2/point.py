@@ -10,12 +10,14 @@
     Autor: Víctor Fernández España
     Curso: 2022-2023
 """
+from typeguard import typechecked
 
 
 class Point:
-    def __init__(self):
-        self.coo_x = 0
-        self.coo_y = 0
+    @typechecked
+    def __init__(self, coo_x: int = 0, coo_y: int = 0):
+        self.coo_x = coo_x
+        self.coo_y = coo_y
 
     @property
     def coo_x(self):
@@ -26,15 +28,13 @@ class Point:
         return self.__coo_y
 
     @coo_x.setter
-    def coo_x(self, value):
-        if not isinstance(value, int):
-            raise ValueError(f"{value} no es un objeto de tipo entero.")
+    @typechecked
+    def coo_x(self, value: int):
         self.__coo_x = value
 
     @coo_y.setter
-    def coo_y(self, value):
-        if not isinstance(value, int):
-            raise ValueError(f"{value} no es un objeto de tipo entero.")
+    @typechecked
+    def coo_y(self, value: int):
         self.__coo_y = value
 
     def invert_coordinates(self):
@@ -42,3 +42,15 @@ class Point:
 
     def __str__(self):
         return f"Punto invertido: ({self.__coo_x}, {self.__coo_y})"
+
+    def __repr__(self):
+        return f"{self.__class__.__name__}({self.__coo_x}, {self.__coo_y})"
+
+    @property
+    def x(self):
+        return self.__x
+
+    @x.setter
+    @typechecked
+    def x(self, value: int):
+        self.__x = value
