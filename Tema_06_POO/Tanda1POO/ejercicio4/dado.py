@@ -14,12 +14,23 @@ from random import randrange
 
 from typeguard import typechecked
 
+CARAS_POR_DEFECTO = 6
+
 
 class Dado:
     @typechecked
-    def __init__(self, cara_superior: int = 0, caras: int = 6):
-        self.cara_superior = cara_superior
-        self.caras = caras
+    def __init__(self, cara_superior: int = 0, caras: int = CARAS_POR_DEFECTO):
+        if caras <= 0:
+            raise ValueError(f"El número de caras del dado no puede ser menor a cero. Recibido: {caras}")
+        self.__caras = caras
+        if cara_superior < 0 or cara_superior > caras:
+            raise ValueError((f"No se le puede asignar al dado un valor menor a cero o mayor que el número de caras. "
+                              f"Recibido: {cara_superior}"))
+
+        if cara_superior == 0:
+            self.roll()
+        else:
+            self.__cara_superior = cara_superior
 
     @property
     def caras(self):
@@ -29,22 +40,12 @@ class Dado:
     def cara_superior(self):
         return self.__cara_superior
 
-    @caras.setter
-    @typechecked
-    def caras(self, value: int):
-        self.__caras = value
-
-    @cara_superior.setter
-    @typechecked
-    def cara_superior(self, value: int):
-        self.__cara_superior = value
-
     def roll(self):
         self.__cara_superior = randrange(1, self.caras)
         return self.__cara_superior
 
     def __str__(self):
-        return f"Ha salido {self.__cara_superior}"
+        return f"{self.__cara_superior}"
 
     def __repr__(self):
-        return f"{self.__class__.__name__}(Ha salido {self.__cara_superior})"
+        return f"{self.__class__.__name__}({self.__cara_superior})"

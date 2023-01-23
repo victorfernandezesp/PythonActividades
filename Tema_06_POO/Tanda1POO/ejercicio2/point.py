@@ -41,7 +41,7 @@ class Point:
         self.__coo_x, self.__coo_y = self.__coo_y, self.__coo_x
 
     def __str__(self):
-        return f"Punto invertido: ({self.__coo_x}, {self.__coo_y})"
+        return f"({self.__coo_x}, {self.__coo_y})"
 
     def __repr__(self):
         return f"{self.__class__.__name__}({self.__coo_x}, {self.__coo_y})"

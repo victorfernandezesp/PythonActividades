@@ -11,57 +11,41 @@
 """
 from typeguard import typechecked
 
+from Tema_06_POO.Tanda1POO.ejercicio2.point import Point
+
 
 class Rectangulo:
-    def __init__(self, punto1, punto2):
-        self.x1 = punto1.coo_x
-        self.y1 = punto1.coo_y
-        self.x2 = punto2.coo_x
-        self.y2 = punto2.coo_y
+    @typechecked
+    def __init__(self, punto1: Point, punto2: Point):
+        self.punto1 = punto1
+        self.punto2 = punto2
 
     @property
-    def x1(self):
-        return self.__x1
+    def punto1(self):
+        return self.__punto1
 
-    @x1.setter
+    @punto1.setter
     @typechecked
-    def x1(self, value: int):
-        self.__x1 = value
+    def punto1(self, value: Point):
+        self.__punto1 = value
 
     @property
-    def y1(self):
-        return self.__y1
+    def punto2(self):
+        return self.__punto2
 
-    @y1.setter
+    @punto2.setter
     @typechecked
-    def y1(self, value: int):
-        self.__y1 = value
+    def punto2(self, value: Point):
+        self.__punto2 = value
 
     @property
-    def x2(self):
-        return self.__x2
-
-    @x2.setter
-    @typechecked
-    def x2(self, value: int):
-        self.__x2 = value
+    def perimetro(self):
+        return (2 * abs(self.__punto1.coo_x - self.__punto2.coo_y)) + \
+               (2 * abs(self.__punto1.coo_y - self.__punto2.coo_y))
 
     @property
-    def y2(self):
-        return self.__y2
-
-    @y2.setter
-    @typechecked
-    def y2(self, value: int):
-        self.__y2 = value
-
-    def calcular_perimetro(self):
-        perimetro = (2 * abs(self.__x2 - self.__x1)) + (2 * abs(self.__y2 - self.__y1))
-        return perimetro
-
-    def calcular_area(self):
-        area = (abs(self.__x2 - self.__x1)) * (abs(self.__y2 - self.__y1))
-        return area
+    def area(self):
+        return (abs(self.__punto1.coo_x - self.__punto2.coo_x)) * (abs(self.__punto1.coo_y - self.__punto2.coo_y))
 
     def __repr__(self):
-        return f"{self.__class__.__name__}()"
+        return f"{self.__class__.__name__}({self.__punto1}, {self.__punto2})"

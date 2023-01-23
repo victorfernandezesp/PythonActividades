@@ -26,5 +26,5 @@ for i in range(VECES_QUE_SE_LANZAN):
     print(f"_______TIRADA {i + 1}_______")
     for j in range(len(vector_4_dados)):
         vector_4_dados[j].roll()
-        print(vector_4_dados[j])
-    sleep(3)
+        print(f"Ha salido: {vector_4_dados[j]}")
+    sleep(1.5)

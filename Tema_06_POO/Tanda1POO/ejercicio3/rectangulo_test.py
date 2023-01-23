@@ -12,10 +12,9 @@
 from rectangulo import Rectangulo
 from Tema_06_POO.Tanda1POO.ejercicio2.point import Point
 
-punto1 = Point(2, 2)
+p1 = Point(2, 2)
 
-punto2 = Point(4, 8)
+p2 = Point(4, 8)
 
-rectangulo = Rectangulo(punto1, punto2)
-print(f"Perimetro: {rectangulo.calcular_perimetro()}")
-print(f"Area: {rectangulo.calcular_area()}")
+rectangulo = Rectangulo(p1, p2)
+print(f"Perimetro: {rectangulo.perimetro} Area: {rectangulo.area}")
