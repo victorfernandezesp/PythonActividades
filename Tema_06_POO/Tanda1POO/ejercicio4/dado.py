@@ -20,9 +20,12 @@ CARAS_POR_DEFECTO = 6
 class Dado:
     @typechecked
     def __init__(self, cara_superior: int = 0, caras: int = CARAS_POR_DEFECTO):
+
         if caras <= 0:
             raise ValueError(f"El número de caras del dado no puede ser menor a cero. Recibido: {caras}")
+
         self.__caras = caras
+
         if cara_superior < 0 or cara_superior > caras:
             raise ValueError((f"No se le puede asignar al dado un valor menor a cero o mayor que el número de caras. "
                               f"Recibido: {cara_superior}"))
