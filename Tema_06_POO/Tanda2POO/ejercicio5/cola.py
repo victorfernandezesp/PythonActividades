@@ -42,10 +42,27 @@ class Cola:
         self.__valores = value
 
     def obtener_numero_elementos(self):
-        contador = 0
-        for _ in self.__valores:
-            contador += 1
-        return contador
+        return len(self.__valores)
+
+    def esta_vacia(self):
+        if not self.__valores:
+            return "Esta vacia"
+        return "Tiene contenido"
+
+    def vaciar_cola(self):
+        self.__valores.clear()
+
+    def encolar(self, elemento):
+        self.__valores.append(elemento)
+
+    def descolar(self):
+        return self.__valores.pop(0)
+
+    def leer_frontal_cola(self):
+        return self.__valores[0]
+
+    def __str__(self):
+        return f"({self.__valores})"
 
     def __repr__(self):
         return f"{self.__class__.__name__}({self.__valores})"
