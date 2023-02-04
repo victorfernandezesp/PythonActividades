@@ -30,12 +30,15 @@ from typeguard import typechecked
 @typechecked
 class Cola:
     def __init__(self, *valores):
-        if len(valores) == 1 and isinstance(valores[0], (list, tuple)):
+        if len(valores) == 1 and isinstance(valores[0], Cola):
+            list(valores)
             self.valores = valores[0]
+        else:
+            self.valores = list(valores)
 
     @property
     def valores(self):
-        return self.__valores
+        return self.__valores.copy()
 
     @valores.setter
     def valores(self, value):
@@ -65,4 +68,4 @@ class Cola:
         return f"({self.__valores})"
 
     def __repr__(self):
-        return f"{self.__class__.__name__}({self.__valores})"
+        return f"{self.__valores}"

@@ -25,3 +25,49 @@
     Curso: 2022-2023
 """
 
+from typeguard import typechecked
+
+
+@typechecked
+class Pila:
+    def __init__(self, *valores):
+        if len(valores) == 1 and isinstance(valores[0], Pila):
+            self.valores = list(valores[0])
+        else:
+            self.valores = valores[0]
+
+    @property
+    def valores(self):
+        return self.__valores.copy()
+
+    @valores.setter
+    def valores(self, value):
+        self.__valores = value
+
+    def obtener_numero_elementos(self):
+        return len(self.__valores)
+
+    def esta_vacia(self):
+        if not self.__valores:
+            return "Esta vacia"
+        return "Tiene contenido"
+
+    def vaciar_pila(self):
+        self.__valores.clear()
+
+    def apilar(self, elemento):
+        self.__valores.reverse()
+        self.__valores.append(elemento)
+        self.__valores.reverse()
+
+    def desapilar(self, elemento_num):
+        return self.__valores.pop(elemento_num)
+
+    def leer_top_pila(self):
+        return self.__valores[0]
+
+    def __str__(self):
+        return f"({self.__valores})"
+
+    def __repr__(self):
+        return f"{self.__class__.__name__}({self.__valores})"

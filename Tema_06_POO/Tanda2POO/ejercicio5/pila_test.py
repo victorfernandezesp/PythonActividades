@@ -24,4 +24,48 @@
     Autor: Víctor Fernández España
     Curso: 2022-2023
 """
+from Tema_06_POO.Tanda2POO.ejercicio5.pila import Pila
 
+print("----------------------------")
+print("COLA 1:  ")
+print("----------------------------")
+pila1 = Pila(1, 2, 3, 4, 5)
+print(f"La pila1 = {pila1}")
+print(f"La longitud de la pila es: {pila1.obtener_numero_elementos()}")
+print(f"{pila1.esta_vacia()}")
+pila1.apilar(1)
+print(f"La pila, apilada: {pila1}")
+print(f"El elemento que se ha desapilado: {pila1.desapilar(2)}.  ")
+print(f"La pila después de desapilar: {pila1}")
+print(f"El elemento top de la pila: {pila1.leer_top_pila()}")
+pila1.vaciar_pila()
+print(f"La pila vacia: {pila1}")
+
+print("----------------------------")
+
+print("COLA 2:  ")
+print("----------------------------")
+pila2 = Pila([])
+print(f"La pila2 = {pila2}")
+print(f"La longitud de la pila es: {pila2.obtener_numero_elementos()}")
+pila2.apilar(1)
+print(f"La pila, apilada: {pila2}")
+print(f"El elemento que se ha desapilado: {pila2.desapilar(2)}.  ")
+print(f"La pila después de desapilar: {pila2}")
+print(f"El elemento top de la pila: {pila2.leer_top_pila()}")
+pila2.vaciar_pila()
+print(f"La pila vacia: {pila2}")
+
+print("COLA 3:  ")
+print("----------------------------")
+pila3 = Pila(pila1)
+print(f"La pila3 = {pila3}")
+print(f"La longitud de la pila es: {pila3.obtener_numero_elementos()}")
+print(f"{pila3.esta_vacia()}")
+pila3.apilar(1)
+print(f"La pila, apilada: {pila3}")
+print(f"El elemento que se ha desapilado: {pila3.desapilar(2)}.  ")
+print(f"La pila después de desapilar: {pila3}")
+print(f"El elemento top de la pila: {pila3.leer_top_pila()}")
+pila3.vaciar_pila()
+print(f"La pila vacia: {pila3}")
