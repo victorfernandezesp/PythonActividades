@@ -26,4 +26,14 @@ t1 = Duration(1, 20, 30)
 
 t2 = Duration(2, 75, -10)
 
-t3 = Duration()
+t3 = Duration(t2)
+
+print(f"{t1 + t2}")
+print(f"{t1 - t2}")
+
+t1.sumar_al_objeto(1, 20, 30)
+print(f"{t1}")
+
+t1 = Duration(1, 20, 30)
+t1.restar_al_objeto(1, 20, 29)
+print(f"{t1}")
