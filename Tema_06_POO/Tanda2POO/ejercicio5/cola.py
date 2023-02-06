@@ -31,8 +31,7 @@ from typeguard import typechecked
 class Cola:
     def __init__(self, *valores):
         if len(valores) == 1 and isinstance(valores[0], Cola):
-            list(valores)
-            self.valores = valores[0]
+            self.valores = list(valores[0].valores[:])
         else:
             self.valores = list(valores)
 

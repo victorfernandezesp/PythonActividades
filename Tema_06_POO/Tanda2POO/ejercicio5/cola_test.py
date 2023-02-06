@@ -24,6 +24,7 @@
     Autor: Víctor Fernández España
     Curso: 2022-2023
 """
+
 from Tema_06_POO.Tanda2POO.ejercicio5.cola import Cola
 
 print("----------------------------")
