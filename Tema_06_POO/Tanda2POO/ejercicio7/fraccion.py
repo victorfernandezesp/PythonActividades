@@ -45,8 +45,12 @@ class Fraction:
     def denominador(self):
         return self.__denominador
 
-    def resultado_de_la_division(self):
+    def resultado_de_la_fraccion(self):
         return self.__numerador / self.__denominador
+
+    def multiplica_por_numero(self, numero):
+        self.__numerador *= numero
+        self.__denominador *= 1
 
     def __add__(self, other):
         return Fraction(self.__numerador + other.__numerador, self.__denominador + other.__denominador)

@@ -17,7 +17,10 @@ from Tema_06_POO.Tanda2POO.ejercicio7.fraccion import Fraction
 f1 = Fraction(7, 11)
 print(f1)
 
-f2 = f1 * 17.32
+f2 = Fraction(2, 2)
+f2.resultado_de_la_fraccion()
+print(f2)
+f2.multiplica_por_numero(2)
 print(f2)
 
 f3 = Fraction(3, 2)
