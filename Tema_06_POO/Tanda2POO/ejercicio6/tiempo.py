@@ -24,10 +24,15 @@ from typeguard import typechecked
 
 @typechecked
 class Duration:
-    def __init__(self, horas: int = 0, minutos: int = 0, segundos: int = 0):
-        self.horas = horas + (minutos // 60)
-        self.minutos = (minutos % 60) + (segundos // 60)
-        self.segundos = segundos % 60
+    def __init__(self, *valores):
+        if len(valores) == 1 and isinstance(valores[0], Duration):
+            self.valores = list(valores[0].valores[:])
+        else:
+            self.valores = list(valores)
+
+        self.horas = self.valores[0] + (self.valores[1] // 60)
+        self.minutos = (self.valores[1] % 60) + (self.valores[2] // 60)
+        self.segundos = self.valores[2] % 60
 
     @property
     def horas(self):
@@ -52,6 +57,29 @@ class Duration:
     @segundos.setter
     def segundos(self, value: int):
         self.__segundos = value
+
+    def __add__(self, other):
+        return Duration(self.horas + other.horas, self.minutos + other.minutos, self.segundos + other.segundos)
+
+    def __sub__(self, other):
+        return Duration(self.horas - other.horas, self.minutos - other.minutos, self.segundos - other.segundos)
+
+    def normalizar(self):
+        self.__horas = self.__horas + (self.__minutos // 60)
+        self.__minutos = (self.__minutos % 60) + (self.__segundos // 60)
+        self.__segundos = self.__segundos % 60
+
+    def sumar_al_objeto(self, horas, minutos, segundos):
+        self.__horas = self.__horas + horas
+        self.__minutos = self.__minutos + minutos
+        self.__segundos = self.__segundos + segundos
+        self.normalizar()
+
+    def restar_al_objeto(self, horas, minutos, segundos):
+        self.__horas = self.__horas - horas
+        self.__minutos = self.__minutos - minutos
+        self.__segundos = self.__segundos - segundos
+        self.normalizar()
 
     def __str__(self):
         return f"{self.__horas}H {self.__minutos}M {self.__segundos}S "
