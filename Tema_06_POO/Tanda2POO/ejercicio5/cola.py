@@ -24,32 +24,25 @@
     Autor: Víctor Fernández España
     Curso: 2022-2023
 """
-from typeguard import typechecked
 
 
-@typechecked
 class Cola:
     def __init__(self, *valores):
         if len(valores) == 1 and isinstance(valores[0], Cola):
-            self.valores = list(valores[0].valores[:])
+            self.__valores = list(valores[0].valores)
         else:
-            self.valores = list(valores)
+            self.__valores = list(valores)
 
     @property
     def valores(self):
-        return self.__valores.copy()
+        return self.__valores[:]
 
-    @valores.setter
-    def valores(self, value):
-        self.__valores = value
-
-    def obtener_numero_elementos(self):
+    @property
+    def longitud(self):
         return len(self.__valores)
 
     def esta_vacia(self):
-        if not self.__valores:
-            return "Esta vacia"
-        return "Tiene contenido"
+        return len(self.__valores) == 0
 
     def vaciar_cola(self):
         self.__valores.clear()
@@ -57,14 +50,11 @@ class Cola:
     def encolar(self, elemento):
         self.__valores.append(elemento)
 
-    def descolar(self):
+    def desencolar(self):
         return self.__valores.pop(0)
 
     def leer_frontal_cola(self):
         return self.__valores[0]
-
-    def __str__(self):
-        return f"({self.__valores})"
 
     def __repr__(self):
         return f"{self.__valores}"

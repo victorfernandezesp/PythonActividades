@@ -23,17 +23,30 @@ from Tema_06_POO.Tanda2POO.ejercicio6.tiempo import Duration
 
 
 t1 = Duration(1, 20, 30)
-
+print(f"{t1}")
 t2 = Duration(2, 75, -10)
-
+print(f"{t1}")
 t3 = Duration(t2)
+print(f"{t3}")
 
-print(f"{t1 + t2}")
-print(f"{t1 - t2}")
 
-t1.sumar_al_objeto(1, 20, 30)
-print(f"{t1}")
+print(f" t1 + t2 = {t1 + t2}")
+print(f" t2 - t1 = {t2 - t1}")
 
-t1 = Duration(1, 20, 30)
-t1.restar_al_objeto(1, 20, 29)
-print(f"{t1}")
+t1.sumar_horas(1)
+print(f" t1 + 1 horas = {t1}")
+
+t1.sumar_minutos(20)
+print(f" t1 + 20 minutos = {t1}")
+
+t1.sumar_segundos(30)
+print(f" t1 + 30 segundos = {t1}")
+
+t1.restar_horas(1)
+print(f" t1 - 1 horas = {t1}")
+
+t1.restar_minutos(20)
+print(f" t1 - 20 minutos = {t1}")
+
+t1.restar_segundos(30)
+print(f" t1 - 30 segundos = {t1}")

@@ -14,24 +14,55 @@
 """
 from Tema_06_POO.Tanda2POO.ejercicio7.fraccion import Fraction
 
-f1 = Fraction(7, 11)
-print(f1)
+# Comprobaciones normales
+f1 = Fraction(5, 3)
+valor = f1.resultado_de_la_fraccion()
+print(f"Resultado de la fraccion: {valor}")
+f1.multiplica_por_numero(3)
+print(f"Resultado de multiplicar por 3: {f1}")
 
-f2 = Fraction(2, 2)
-f2.resultado_de_la_fraccion()
-print(f2)
-f2.multiplica_por_numero(2)
-print(f2)
+f1 = Fraction(5, 3)
+f2 = Fraction(8, 7)
+f3 = f1 + f2
+print(f"{f1} + {f2} = {f3}")
 
-f3 = Fraction(3, 2)
-f4 = Fraction(8, 6)
-f5 = f3 + f4
-print(f5)
-f6 = f3 - f4
-print(f6)
+f1 = Fraction(5, 3)
+f2 = Fraction(8, 7)
+f4 = f1 - f2
+print(f"{f1} - {f2} = {f4}")
 
-f7 = f3 * f4
-print(f7)
-f8 = f3 // f4
-print(f8)
+f1 = Fraction(5, 3)
+f2 = Fraction(8, 7)
+f5 = f1 * f2
+print(f"{f1} * {f2} = {f5}")
 
+f1 = Fraction(5, 3)
+f2 = Fraction(8, 7)
+f6 = f2 * f1
+print(f"{f2} * {f1} = {f6}")
+
+f1 = Fraction(5, 3)
+f2 = Fraction(8, 7)
+f7 = f1 // f2
+print(f"{f1} // {f2} = {f7}")
+
+# Comprobación denominador negativo
+f1 = Fraction(5, -3)
+f2 = Fraction(8, 7)
+f3 = f1 + f2
+print(f"{f1} + {f2} = {f3}")
+
+# Comprobación numerador y denominador negativo
+f1 = Fraction(-5, -3)
+f2 = Fraction(8, 7)
+f3 = f1 + f2
+print(f"{f1} + {f2} = {f3}")
+
+# Comprobación numerador negativo
+f1 = Fraction(-5, 3)
+f2 = Fraction(8, 7)
+f3 = f1 + f2
+print(f"{f1} + {f2} = {f3}")
+
+# Comprobación denominador negativo
+"""f1 = Fraction(-5, 0)"""

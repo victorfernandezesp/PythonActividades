@@ -24,15 +24,27 @@ from typeguard import typechecked
 
 @typechecked
 class Duration:
-    def __init__(self, *valores):
-        if len(valores) == 1 and isinstance(valores[0], Duration):
-            self.valores = list(valores[0].valores[:])
-        else:
-            self.valores = list(valores)
+    def __init__(self, horas, minutos=None, segundos=None):
+        if isinstance(horas, Duration):
+            other = horas
+            self.__horas = other.horas
+            self.__minutos = other.minutos
+            self.__segundos = other.segundos
 
-        self.horas = self.valores[0] + (self.valores[1] // 60)
-        self.minutos = (self.valores[1] % 60) + (self.valores[2] // 60)
-        self.segundos = self.valores[2] % 60
+        else:
+            self.__horas = horas
+            self.__minutos = minutos
+            self.__segundos = segundos
+            self.__normalizar()
+
+    def __normalizar(self):
+        segundos = self.horas * 3600 + self.minutos * 60 + self.segundos
+        if segundos < 0:
+            raise ValueError("El tiempo no puede ser negativo")
+
+        self.__horas = segundos // 3600
+        self.__minutos = segundos % 3600 // 60
+        self.__segundos = segundos % 3600 % 60
 
     @property
     def horas(self):
@@ -40,7 +52,10 @@ class Duration:
 
     @horas.setter
     def horas(self, value: int):
-        self.__horas = value
+        nuevo_duration = Duration(value, self.minutos, self.segundos)
+        self.__horas = nuevo_duration.horas
+        self.__minutos = nuevo_duration.minutos
+        self.__segundos = nuevo_duration.segundos
 
     @property
     def minutos(self):
@@ -48,7 +63,10 @@ class Duration:
 
     @minutos.setter
     def minutos(self, value: int):
-        self.__minutos = value
+        nuevo_duration = Duration(self.horas, value, self.segundos)
+        self.__horas = nuevo_duration.horas
+        self.__minutos = nuevo_duration.minutos
+        self.__segundos = nuevo_duration.segundos
 
     @property
     def segundos(self):
@@ -56,7 +74,10 @@ class Duration:
 
     @segundos.setter
     def segundos(self, value: int):
-        self.__segundos = value
+        nuevo_duration = Duration(self.horas, self.minutos, value)
+        self.__horas = nuevo_duration.horas
+        self.__minutos = nuevo_duration.minutos
+        self.__segundos = nuevo_duration.segundos
 
     def __add__(self, other):
         return Duration(self.horas + other.horas, self.minutos + other.minutos, self.segundos + other.segundos)
@@ -64,22 +85,23 @@ class Duration:
     def __sub__(self, other):
         return Duration(self.horas - other.horas, self.minutos - other.minutos, self.segundos - other.segundos)
 
-    def normalizar(self):
-        self.__horas = self.__horas + (self.__minutos // 60)
-        self.__minutos = (self.__minutos % 60) + (self.__segundos // 60)
-        self.__segundos = self.__segundos % 60
+    def sumar_horas(self, horas):
+        self.__horas += horas
 
-    def sumar_al_objeto(self, horas, minutos, segundos):
-        self.__horas = self.__horas + horas
-        self.__minutos = self.__minutos + minutos
-        self.__segundos = self.__segundos + segundos
-        self.normalizar()
+    def sumar_minutos(self, minutos):
+        self.__minutos += minutos
 
-    def restar_al_objeto(self, horas, minutos, segundos):
-        self.__horas = self.__horas - horas
-        self.__minutos = self.__minutos - minutos
-        self.__segundos = self.__segundos - segundos
-        self.normalizar()
+    def sumar_segundos(self, segundos):
+        self.__segundos += segundos
+
+    def restar_horas(self, horas):
+        self.__horas -= horas
+
+    def restar_minutos(self, minutos):
+        self.__minutos -= minutos
+
+    def restar_segundos(self, segundos):
+        self.__segundos -= segundos
 
     def __str__(self):
         return f"{self.__horas}H {self.__minutos}M {self.__segundos}S "
