@@ -26,6 +26,8 @@ from typeguard import typechecked
 class Duration:
     def __init__(self, horas, minutos=None, segundos=None):
         if isinstance(horas, Duration):
+            if minutos is not None or segundos is not None:
+                raise TypeError("Un objeto creado por otro objeto, no puedes pasarle mas de un parametro")
             other = horas
             self.__horas = other.horas
             self.__minutos = other.minutos
