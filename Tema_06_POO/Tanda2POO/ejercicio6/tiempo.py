@@ -105,6 +105,9 @@ class Duration:
     def restar_segundos(self, segundos):
         self.__segundos -= segundos
 
+    def __eq__(self, other: 'Duration'):
+        return self.__horas == other.horas, self.__minutos == other.minutos, self.__segundos == other.segundos
+
     def __str__(self):
         return f"{self.__horas}H {self.__minutos}M {self.__segundos}S "
 

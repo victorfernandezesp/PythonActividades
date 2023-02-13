@@ -63,6 +63,7 @@ class Fraction:
     def multiplica_por_numero(self, numero):
         self.__numerador *= numero
         self.__denominador *= 1
+        self.__simplificar()
 
     def igualar_denominador(self, other):
         mcm = minimo_comun_multiplo(self.__denominador, other.__denominador)
