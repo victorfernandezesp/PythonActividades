@@ -14,30 +14,14 @@
 """
 from typeguard import typechecked
 
-
-def maximo_comun_divisor(numero_1, numero_2):
-    a1 = numero_1
-    b1 = numero_2
-    while b1 != 0:
-        aux = b1
-        b1 = a1 % b1
-        a1 = aux
-    return a1
-
-
-def minimo_comun_multiplo(numero_1, numero_2):
-    mcd = maximo_comun_divisor(numero_1, numero_2)
-    mcm = (numero_1 * numero_2) // mcd
-    return mcm
+from bibliotecafunciones.funciones_matematicas.mcd_y_mcm import maximo_comun_divisor
 
 
 @typechecked
 class Fraction:
-    def __init__(self, numerador, denominador):
-        if denominador < 0:
-            numerador *= -1
-            denominador *= -1
-
+    def __init__(self, numerador: int, denominador: int):
+        if self.__denominador == 0:
+            raise ValueError("No se puede dividir por 0")
         self.__numerador = numerador
         self.__denominador = denominador
         self.__simplificar()
@@ -53,41 +37,48 @@ class Fraction:
 
     @property
     def denominador(self):
-        if self.__denominador == 0:
-            raise ValueError("No se puede dividir por 0")
         return self.__denominador
 
-    def resultado_de_la_fraccion(self):
+    def resultado(self):
         return self.__numerador / self.__denominador
 
-    def multiplica_por_numero(self, numero):
-        self.__numerador *= numero
-        self.__denominador *= 1
-        self.__simplificar()
+    def __add__(self, other: 'Fraction'):
+        return Fraction(self.__numerador * other.__denominador + other.__numerador * self.__denominador,
+                        self.__denominador * other.__denominador)
 
-    def igualar_denominador(self, other):
-        mcm = minimo_comun_multiplo(self.__denominador, other.__denominador)
-        self.__numerador *= mcm // self.__denominador
-        other.__numerador *= mcm // other.__denominador
-        self.__denominador = mcm
-        other.__denominador = mcm
+    def __sub__(self, other: 'Fraction'):
+        return self + other * -1
 
-    def __add__(self, other):
-        self.igualar_denominador(other)
-        return Fraction(self.__numerador + other.__numerador, self.__denominador)
+    def __mul__(self, other: (int, 'Fraction')):
+        if isinstance(other, Fraction):
+            return Fraction(self.__numerador * other.__numerador, self.__denominador * other.__denominador)
+        return Fraction(self.__numerador * other, self.__denominador)
 
-    def __sub__(self, other):
-        self.igualar_denominador(other)
-        return Fraction(self.__numerador - other.__numerador, self.__denominador)
+    def __rmul__(self, other: int):
+        return self * other
 
-    def __mul__(self, other):
-        return Fraction(self.__numerador * other.__numerador, self.__denominador * other.__denominador)
-
-    def __rmul__(self, other):
-        return Fraction.__mul__(self, other)
-
-    def __floordiv__(self, other):
+    def __truediv__(self, other: 'Fraction'):
         return Fraction(self.__numerador * other.__denominador, self.__denominador * other.__numerador)
+
+    # Esto también funcionaria con fracciones equivalentes, pero no va a ocurrir, ya que simplificamos en el
+    # constructor.
+    def __eq__(self, other: 'Fraction'):
+        return (self.__numerador, self.__denominador) == (other.__numerador, other.__denominador)
+
+    def __ne__(self, other: 'Fraction'):
+        return not self == other
+
+    def __lt__(self, other: 'Fraction'):
+        return self.__numerador * other.__denominador < other.__numerador * self.__denominador
+
+    def __gt__(self, other: 'Fraction'):
+        return (not self == other) and (not self < other)
+
+    def __le__(self, other: 'Fraction'):
+        return not self > other
+
+    def __ge__(self, other: 'Fraction'):
+        return not self < other
 
     def __str__(self):
         return f"{self.__numerador}/{self.__denominador} "

@@ -30,11 +30,116 @@
     Autor: Víctor Fernández España
     Curso: 2022-2023
 """
+import datetime
+
+import locale
+
 from Tema_06_POO.Tanda2POO.ejercicio8.menu import Menu
-from typeguard import typechecked
 
+menu1 = Menu("MANEJA FECHAS",
+             "Introducir fecha.",
+             "Añadir días a la fecha.",
+             "Añadir meses a la fecha.",
+             "Añadir años a la fecha.",
+             "Comparar la fecha.",
+             "Mostrar la fecha en formato largo.")
 
-@typechecked
-class Date:
-    def __init__(self):
-        pass
+fecha_introducida = False
+while True:
+    option = menu1.escoger_opciones()
+    match option:
+
+        case 1:
+            fecha = input("Introduce una fecha en formato dd/mm/aaaa:   ")
+            dia = fecha[:2]
+            mes = fecha[3:5]
+            ano = fecha[6:]
+            if not (dia.isdigit() and mes.isdigit() and ano.isdigit()):
+                print("Debes introducir una fecha en formato dd/mm/aaaa.")
+                continue
+            else:
+                fecha1 = datetime.date(int(ano), int(mes), int(dia))
+                fecha_introducida = True
+
+        case 2:
+            if not fecha_introducida:
+                print("Primero debes introducir una fecha.")
+                continue
+            numero_de_dias_a_sumar = int(input("¿Cuántos días quieres sumar a la fecha?:    "))
+            if numero_de_dias_a_sumar < 0:
+                numero_de_dias_a_sumar = abs(numero_de_dias_a_sumar)
+                fecha1 -= datetime.timedelta(days=numero_de_dias_a_sumar)
+            else:
+                fecha1 += datetime.timedelta(numero_de_dias_a_sumar)
+
+            fecha_sumada = fecha1
+            print(fecha_sumada)
+
+        case 3:
+            if not fecha_introducida:
+                print("Primero debes introducir una fecha.")
+                continue
+            numero_de_meses_a_sumar = int(input("¿Cuántos meses quieres sumar a la fecha?:    "))
+            if numero_de_meses_a_sumar < 0:
+                numero_de_meses_a_sumar = abs(round(numero_de_meses_a_sumar * 30.4167))
+                fecha1 -= datetime.timedelta(days=numero_de_meses_a_sumar)
+            else:
+                numero_de_meses_a_sumar = round(numero_de_meses_a_sumar * 30.4167)
+                fecha1 += datetime.timedelta(numero_de_meses_a_sumar)
+
+            fecha_sumada = fecha1
+
+            print(fecha_sumada)
+
+        case 4:
+            if not fecha_introducida:
+                print("Primero debes introducir una fecha.")
+                continue
+
+            numero_de_anos_a_sumar = int(input("¿Cuántos años quieres sumar a la fecha?:    "))
+            if numero_de_anos_a_sumar < 0:
+                ano = fecha1.year
+                mes = fecha1.month
+                dia = fecha1.day
+                ano -= numero_de_anos_a_sumar
+
+            else:
+                ano = fecha1.year
+                mes = fecha1.month
+                dia = fecha1.day
+                ano += numero_de_anos_a_sumar
+
+            fecha1 = datetime.date(ano, mes, dia)
+            fecha_sumada = fecha1
+            print(fecha_sumada)
+
+        case 5:
+            if not fecha_introducida:
+                print("Primero debes introducir una fecha.")
+                continue
+            fecha = input("Introduce otra fecha en formato dd/mm/aaaa:   ")
+            dia = fecha[:2]
+            mes = fecha[3:5]
+            ano = fecha[6:]
+            if not (dia.isdigit() and mes.isdigit() and ano.isdigit()):
+                print("Debes introducir una fecha en formato dd/mm/aaaa.")
+                continue
+            else:
+                fecha2 = datetime.date(int(ano), int(mes), int(dia))
+
+            if fecha1 > fecha2:
+                print("La fecha 2 es mas antigua que la fecha 1")
+
+            elif fecha1 < fecha2:
+                print("La fecha 1 es mas antigua que la fecha 2")
+
+            else:
+                print("Las fechas son iguales")
+
+        case 6:
+            if not fecha_introducida:
+                print("Primero debes introducir una fecha.")
+                continue
+            locale.setlocale(locale.LC_ALL, 'es-ES')
+            fecha_formato_largo = fecha1.strftime('%A %d %B %Y')
+            print(fecha_formato_largo)

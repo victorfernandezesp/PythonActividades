@@ -48,15 +48,12 @@ class Pila:
         self.__valores.clear()
 
     def apilar(self, elemento):
-        self.__valores.reverse()
-        self.__valores.append(elemento)
-        self.__valores.reverse()
+        self.__valores.insert(0, elemento)
 
-    def desapilar(self, elemento_num):
-        return self.__valores.pop(elemento_num)
+    def desapilar(self):
+        return self.__valores.pop(0)
 
     def leer_top_pila(self):
-        self.__valores.reverse()
         return self.__valores[0]
 
     def __repr__(self):

@@ -16,7 +16,7 @@ from Tema_06_POO.Tanda2POO.ejercicio7.fraccion import Fraction
 
 # Comprobaciones normales
 f1 = Fraction(5, 3)
-valor = f1.resultado_de_la_fraccion()
+valor = f1.resultado()
 print(f"Resultado de la fraccion: {valor}")
 f1.multiplica_por_numero(3)
 print(f"Resultado de multiplicar por 3: {f1}")
