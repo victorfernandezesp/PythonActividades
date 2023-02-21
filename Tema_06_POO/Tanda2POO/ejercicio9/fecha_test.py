@@ -32,6 +32,6 @@
 
 from Tema_06_POO.Tanda2POO.ejercicio9.fecha import Fecha
 
-fecha1 = Fecha(1, 2, 2003)
+fecha1 = Fecha(15, 11, 2003)
+fecha1.obtener_dia_semana()
 
-fecha2 = Fecha(fecha1)

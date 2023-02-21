@@ -33,8 +33,11 @@
 import datetime
 
 import locale
+import sys
 
 from Tema_06_POO.Tanda2POO.ejercicio8.menu import Menu
+
+SALIDA_DEL_PROGRAMA_CON_EXITO = 0
 
 menu1 = Menu("MANEJA FECHAS",
              "Introducir fecha.",
@@ -46,7 +49,7 @@ menu1 = Menu("MANEJA FECHAS",
 
 fecha_introducida = False
 while True:
-    option = menu1.escoger_opciones()
+    option = menu1.escoger()
     match option:
 
         case 1:
@@ -143,3 +146,6 @@ while True:
             locale.setlocale(locale.LC_ALL, 'es-ES')
             fecha_formato_largo = fecha1.strftime('%A %d %B %Y')
             print(fecha_formato_largo)
+
+        case 7:
+            sys.exit(SALIDA_DEL_PROGRAMA_CON_EXITO)

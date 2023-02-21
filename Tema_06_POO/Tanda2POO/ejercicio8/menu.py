@@ -30,55 +30,37 @@
     Autor: Víctor Fernández España
     Curso: 2022-2023
 """
-import sys
 
 from typeguard import typechecked
-
-SALIDO_CON_EXITO = 0
 
 
 @typechecked
 class Menu:
-    def __init__(self, titulo, *opciones):
+    def __init__(self, titulo: str, *opciones: str):
         self.__titulo = titulo
         self.__opciones = list(opciones)
         self.__opciones.append("Terminar")
 
-    @property
-    def titulo(self):
-        return self.__titulo
-
-    @property
-    def opciones(self):
-        return self.__opciones
-
-    def mostrar_opciones(self):
-        contador = 1
+    def __mostrar_opciones(self):
         print(f"{self.__titulo}:")
-        print("Selecciona una de las siguientes opciones:   ")
-        for i in self.__opciones:
-            print(f"{contador}. {i}")
+        contador = 1
+        for opcion in self.__opciones:
+            print(f"{contador}. {opcion}")
             contador += 1
         print('-------------------------------------------------------------------------------------------------------')
 
-    def escoger_opciones(self):
-        self.mostrar_opciones()
+    def escoger(self):
+        self.__mostrar_opciones()
         x = int(input("¿Que vas a seleccionar?    "))
-        if x == len(self.__opciones):
-            sys.exit(SALIDO_CON_EXITO)
         return x
 
-    def anadir_opciones(self):
-        nueva_opcion = input("¿Cuál es la opción nueva a añadir?")
-        pregunta_si_anade_al_final = input("¿Desea añadirlo como ultima opción? (S/N)")
-        pregunta_si_anade_al_final.upper()
-        if pregunta_si_anade_al_final == "S":
+    def anadir_opciones(self, nueva_opcion, posicion):
+        if posicion == len(self.__opciones):
             self.__opciones.insert(len(self.__opciones) - 1, nueva_opcion)
         else:
             while True:
-                pregunta_posicion = int(input("¿En que posicion desea añadirlo?"))
-                if len(self.__opciones) > pregunta_posicion > -1:
-                    self.__opciones.insert(pregunta_posicion, nueva_opcion)
+                if len(self.__opciones) > posicion > -1:
+                    self.__opciones.insert(posicion+1, nueva_opcion)
                     break
                 else:
                     print("Has seleccionado una posicion que no se encuentra disponible. ")
