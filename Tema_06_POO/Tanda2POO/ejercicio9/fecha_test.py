@@ -33,5 +33,6 @@
 from Tema_06_POO.Tanda2POO.ejercicio9.fecha import Fecha
 
 fecha1 = Fecha(15, 11, 2003)
+print(fecha1)
 fecha1.obtener_dia_semana()
 

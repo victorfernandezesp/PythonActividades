@@ -51,8 +51,12 @@ class Menu:
 
     def escoger(self):
         self.__mostrar_opciones()
-        x = int(input("¿Que vas a seleccionar?    "))
-        return x
+        while True:
+            x = int(input("¿Que vas a seleccionar?    "))
+            if 1 <= x <= len(self.__opciones):
+                return x
+            else:
+                print("Ha introducido una opcion incorrecta, vuelva  a intentarlo.")
 
     def anadir_opciones(self, nueva_opcion, posicion):
         if posicion == len(self.__opciones):

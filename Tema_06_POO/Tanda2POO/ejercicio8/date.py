@@ -31,7 +31,7 @@
     Curso: 2022-2023
 """
 import datetime
-
+from dateutil.relativedelta import relativedelta
 import locale
 import sys
 
@@ -48,6 +48,14 @@ menu1 = Menu("MANEJA FECHAS",
              "Mostrar la fecha en formato largo.")
 
 fecha_introducida = False
+
+
+def imprimir_fecha():
+    locale.setlocale(locale.LC_ALL, 'es-ES')
+    fecha_formato_largo = fecha1.strftime('%A %d %B %Y')
+    print(fecha_formato_largo)
+
+
 while True:
     option = menu1.escoger()
     match option:
@@ -71,12 +79,11 @@ while True:
             numero_de_dias_a_sumar = int(input("¿Cuántos días quieres sumar a la fecha?:    "))
             if numero_de_dias_a_sumar < 0:
                 numero_de_dias_a_sumar = abs(numero_de_dias_a_sumar)
-                fecha1 -= datetime.timedelta(days=numero_de_dias_a_sumar)
+                fecha1 -= relativedelta(days=numero_de_dias_a_sumar)
             else:
-                fecha1 += datetime.timedelta(numero_de_dias_a_sumar)
+                fecha1 += relativedelta(days=numero_de_dias_a_sumar)
 
-            fecha_sumada = fecha1
-            print(fecha_sumada)
+            imprimir_fecha()
 
         case 3:
             if not fecha_introducida:
@@ -84,15 +91,11 @@ while True:
                 continue
             numero_de_meses_a_sumar = int(input("¿Cuántos meses quieres sumar a la fecha?:    "))
             if numero_de_meses_a_sumar < 0:
-                numero_de_meses_a_sumar = abs(round(numero_de_meses_a_sumar * 30.4167))
-                fecha1 -= datetime.timedelta(days=numero_de_meses_a_sumar)
+                fecha1 -= relativedelta(months=numero_de_meses_a_sumar)
             else:
-                numero_de_meses_a_sumar = round(numero_de_meses_a_sumar * 30.4167)
-                fecha1 += datetime.timedelta(numero_de_meses_a_sumar)
+                fecha1 += relativedelta(months=numero_de_meses_a_sumar)
 
-            fecha_sumada = fecha1
-
-            print(fecha_sumada)
+            imprimir_fecha()
 
         case 4:
             if not fecha_introducida:
@@ -101,20 +104,12 @@ while True:
 
             numero_de_anos_a_sumar = int(input("¿Cuántos años quieres sumar a la fecha?:    "))
             if numero_de_anos_a_sumar < 0:
-                ano = fecha1.year
-                mes = fecha1.month
-                dia = fecha1.day
-                ano -= numero_de_anos_a_sumar
+                fecha1 -= relativedelta(year=numero_de_anos_a_sumar)
 
             else:
-                ano = fecha1.year
-                mes = fecha1.month
-                dia = fecha1.day
-                ano += numero_de_anos_a_sumar
+                fecha1 += relativedelta(year=numero_de_anos_a_sumar)
 
-            fecha1 = datetime.date(ano, mes, dia)
-            fecha_sumada = fecha1
-            print(fecha_sumada)
+            imprimir_fecha()
 
         case 5:
             if not fecha_introducida:
@@ -143,9 +138,7 @@ while True:
             if not fecha_introducida:
                 print("Primero debes introducir una fecha.")
                 continue
-            locale.setlocale(locale.LC_ALL, 'es-ES')
-            fecha_formato_largo = fecha1.strftime('%A %d %B %Y')
-            print(fecha_formato_largo)
+            imprimir_fecha()
 
         case 7:
             sys.exit(SALIDA_DEL_PROGRAMA_CON_EXITO)

@@ -46,40 +46,7 @@ class Fecha:
             self.__mes = int(mes)
             self.__ano = int(ano)
 
-        self.comprueba_fecha()
-
-    def comprueba_fecha(self):
-        if self.__ano < 1:
-            raise ValueError("La fecha no puede ser menor que el 1 de enero del año 1.")
-        if 1 > self.__mes > 12:
-            raise ValueError("El mes introducido no es correcto.")
-        if self.es_bisiesto():
-            match self.__mes:
-                case 1 | 3 | 5 | 7 | 8 | 10 | 12:
-                    if not 1 <= self.__dia <= 31:
-                        raise ValueError("La fecha introducida no es correcta.")
-
-                case 4 | 6 | 9 | 11:
-                    if not 1 <= self.__dia <= 30:
-                        raise ValueError("La fecha introducida no es correcta.")
-
-                case 2:
-                    if not 1 <= self.__dia <= 29:
-                        raise ValueError("La fecha introducida no es correcta.")
-
-        else:
-            match self.__mes:
-                case 1 | 3 | 5 | 7 | 8 | 10 | 12:
-                    if not 1 <= self.__dia <= 31:
-                        raise ValueError("La fecha introducida no es correcta.")
-
-                case 4 | 6 | 9 | 11:
-                    if not 1 <= self.__dia <= 30:
-                        raise ValueError("La fecha introducida no es correcta.")
-
-                case 2:
-                    if not 1 <= self.__dia <= 28:
-                        raise ValueError("La fecha introducida no es correcta.")
+        self.__comprueba_fecha(self.__dia, self.mes, self.__ano)
 
     @property
     def dia(self):
@@ -92,6 +59,54 @@ class Fecha:
     @property
     def ano(self):
         return self.__ano
+
+    @dia.setter
+    def dia(self, value: int):
+        self.__comprueba_fecha(value, self.mes, self.__ano)
+        self.__dia = value
+
+    @mes.setter
+    def mes(self, value: int):
+        self.__comprueba_fecha(self.__dia, value, self.__ano)
+        self.__mes = value
+
+    @ano.setter
+    def ano(self, value: int):
+        self.__comprueba_fecha(self.__dia, self.mes, value)
+        self.__ano = value
+
+    def __comprueba_fecha(self, dia, mes, ano):
+        if ano < 1:
+            raise ValueError("La fecha no puede ser menor que el 1 de enero del año 1.")
+        if 1 > mes > 12:
+            raise ValueError("El mes introducido no es correcto.")
+        if self.es_bisiesto():
+            match mes:
+                case 1 | 3 | 5 | 7 | 8 | 10 | 12:
+                    if not 1 <= dia <= 31:
+                        raise ValueError("La fecha introducida no es correcta.")
+
+                case 4 | 6 | 9 | 11:
+                    if not 1 <= dia <= 30:
+                        raise ValueError("La fecha introducida no es correcta.")
+
+                case 2:
+                    if not 1 <= dia <= 29:
+                        raise ValueError("La fecha introducida no es correcta.")
+
+        else:
+            match mes:
+                case 1 | 3 | 5 | 7 | 8 | 10 | 12:
+                    if not 1 <= dia <= 31:
+                        raise ValueError("La fecha introducida no es correcta.")
+
+                case 4 | 6 | 9 | 11:
+                    if not 1 <= dia <= 30:
+                        raise ValueError("La fecha introducida no es correcta.")
+
+                case 2:
+                    if not 1 <= dia <= 28:
+                        raise ValueError("La fecha introducida no es correcta.")
 
     def __suma_1_dia(self):
         if self.es_bisiesto():
@@ -282,58 +297,21 @@ class Fecha:
         return not self < other
 
     def es_bisiesto(self):
-        if self.__ano % 4 == 0 and self.__ano % 100 != 0 or self.__ano % 400 == 0:
-            return True
-        return False
+        return self.__ano % 4 == 0 and self.__ano % 100 != 0 or self.__ano % 400 == 0
 
     def obtener_dia_semana(self):
-        fecha_base = Fecha(1, 1, 1)
+        fecha_base = Fecha(1, 1, 1)  # Fue lunes (o eso dicen)
         dia = (self - fecha_base) % 7
-        match dia:
-            case 0:
-                print("Lunes")
-            case 1:
-                print("Martes")
-            case 2:
-                print("Miércoles")
-            case 3:
-                print("Jueves")
-            case 4:
-                print("Viernes")
-            case 5:
-                print("Sábado")
-            case 6:
-                print("Domingo")
+        num_dia = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"]
+        print(num_dia[dia])
 
     def __mes_con_letra(self):
-        match self.__mes:
-            case 1:
-                return "Enero"
-            case 2:
-                return "Febrero"
-            case 3:
-                return "Marzo"
-            case 4:
-                return "Abril"
-            case 5:
-                return "Mayo"
-            case 6:
-                return "Junio"
-            case 7:
-                return "Julio"
-            case 8:
-                return "Agosto"
-            case 9:
-                return "Septiembre"
-            case 10:
-                return "Octubre"
-            case 11:
-                return "Noviembre"
-            case 12:
-                return "Diciembre"
+        nom_meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre",
+                     "Noviembre", "Diciembre"]
+        return nom_meses[self.__mes - 1]
 
     def __str__(self):
-        return f"{self.__dia}, {self.__mes}, {self.__ano} "
+        return f"{self.__dia} de {self.__mes_con_letra()} de {self.__ano} "
 
     def __repr__(self):
         return f"{self.__class__.__name__}({self.__dia}, {self.__mes}, {self.__ano})"
