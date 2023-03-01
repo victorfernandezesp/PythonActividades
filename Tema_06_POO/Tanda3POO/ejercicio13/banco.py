@@ -77,7 +77,7 @@ class BankAccount:
     def transferir(self, other, cantidad):
         self.retirar(cantidad)
         if self.__operacion_permitida:
-            other.__saldo += cantidad
+            other.ingresar(cantidad)
 
     def __repr__(self):
-        return f"{self.__class__.__name__} Número de cta: {self.__numero_cuenta} Saldo: {float(self.__saldo)} €"
+        return f"Número de cta: {self.__numero_cuenta} Saldo: {float(self.__saldo)} €"

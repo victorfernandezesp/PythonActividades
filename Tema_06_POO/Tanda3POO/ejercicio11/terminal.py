@@ -52,6 +52,7 @@ class Terminal:
             raise ValueError("El numero ya esta registrado")
 
         Terminal.__listado_terminales.append(numero)
+        numero = numero[:3] + " " + numero[3:5] + " " + numero[5:7] + " " + numero[7:9]
         self.__numero = numero
         self.__segundos = 0
 
@@ -68,4 +69,4 @@ class Terminal:
         other.__segundos += segundos
 
     def __repr__(self):
-        return f"{self.__class__.__name__} Nº {self.numero} - {self.__segundos}s de conversación "
+        return f"Nº {self.numero} - {self.__segundos}s de conversación "

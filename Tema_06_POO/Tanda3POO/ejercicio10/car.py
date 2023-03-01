@@ -32,17 +32,12 @@ from Tema_06_POO.Tanda3POO.ejercicio10.vehiculo import Vehicle
 
 class Car(Vehicle):
 
-    def viajar(self, kilometros):
-        self.kilometros_totales += kilometros
-        self.kilometros_viajados += kilometros
+    def __init__(self):
+        super().__init__()
+        self.__quema_rueda = "IIIIIIIIIIIIIIIIIIIIIIIIII"
 
-    @staticmethod
-    def quema_rueda():
-        sleep(2)
-        print("IIIIIIIIIIIIIIIIIIIIIIIIII")
-        sleep(1)
-        print("No es Iago Aspas pero también quema rueda")
-        sleep(4)
+    def quema_rueda(self):
+        print(self.__quema_rueda)
 
     def __repr__(self):
         return f"{self.__class__.__name__}"

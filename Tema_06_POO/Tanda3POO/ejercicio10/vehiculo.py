@@ -25,7 +25,7 @@
     Autor: Víctor Fernández España
     Curso: 2022-2023
 """
-from abc import ABC, abstractmethod
+from abc import ABC
 
 
 class Vehicle(ABC):
@@ -34,20 +34,25 @@ class Vehicle(ABC):
 
     def __init__(self):
         self.__kilometros_viajados = 0
-        self.__vehiculos_creados += 1
-        self.__kilometros_totales += self.__kilometros_viajados
+        Vehicle.__vehiculos_creados += 1
 
     @property
     def kilometros_viajados(self):
         return self.__kilometros_viajados
 
-    @property
-    def kilometros_totales(self):
-        return self.__kilometros_viajados
+    @classmethod
+    def kilometros_totales(cls):
+        return cls.__kilometros_totales
 
-    @abstractmethod
+    @classmethod
+    def vehiculos_creados(cls):
+        return cls.__vehiculos_creados
+
     def viajar(self, kilometros):
-        pass
+        if kilometros < 0:
+            raise ValueError("Los Km no pueden ser negativos")
+        self.__kilometros_viajados += kilometros
+        Vehicle.__kilometros_totales += kilometros
 
     def __repr__(self):
         return f"{self.__class__.__name__}"

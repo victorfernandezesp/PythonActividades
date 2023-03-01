@@ -31,13 +31,12 @@ from Tema_06_POO.Tanda3POO.ejercicio10.vehiculo import Vehicle
 
 class Bike(Vehicle):
 
-    def viajar(self, kilometros):
-        Vehicle.kilometros_totales += kilometros
-        Vehicle.kilometros_viajados += kilometros
+    def __init__(self):
+        super().__init__()
+        self.__caballito = "*Hace tremendo caballito epico*"
 
-    @staticmethod
-    def hacer_caballito():
-        print(f"*Hace tremendo caballito epico*")
+    def hacer_caballito(self):
+        print(self.__caballito)
 
     def __repr__(self):
         return f"{self.__class__.__name__}"

@@ -26,12 +26,10 @@
     Curso: 2022-2023
 """
 
-from Tema_06_POO.Tanda3POO.ejercicio10.car import Car
-from Tema_06_POO.Tanda3POO.ejercicio10.bike import Bike
-from Tema_06_POO.Tanda3POO.ejercicio10.vehiculo import Vehicle
-
 import sys
 
+from Tema_06_POO.Tanda3POO.ejercicio10.bike import Bike
+from Tema_06_POO.Tanda3POO.ejercicio10.car import Car
 from bibliotecafunciones.util.menu import Menu
 
 SALIDA_DEL_PROGRAMA_CON_EXITO = 0
@@ -53,13 +51,13 @@ while True:
     match option:
 
         case 1:
-            bici.viajar(int(input("¿Cuantos Km anda la bicicleta?")))
+            bici.viajar(int(input("¿Cuantos Km anda la bicicleta?:  ")))
 
         case 2:
             bici.hacer_caballito()
 
         case 3:
-            coche.viajar(int(input("¿Cuantos Km anda el Coche?")))
+            coche.viajar(int(input("¿Cuantos Km anda el Coche?:     ")))
 
         case 4:
             coche.quema_rueda()
@@ -71,7 +69,8 @@ while True:
             print(coche.kilometros_viajados)
 
         case 7:
-            print(Vehicle.kilometros_totales)
+            total = bici.kilometros_viajados + coche.kilometros_viajados
+            print(f"{bici.kilometros_totales()} KM")
 
         case 8:
             sys.exit(SALIDA_DEL_PROGRAMA_CON_EXITO)

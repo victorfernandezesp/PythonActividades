@@ -40,10 +40,8 @@ from Tema_06_POO.Tanda3POO.ejercicio11.terminal import Terminal
 class Mobile(Terminal):
 
     def __init__(self, num: str, tarifa: str):
+        self.tarifa = tarifa
         super().__init__(num)
-        if tarifa not in ["rata", "mono", "bisonte"]:
-            raise ValueError("Tarifa desconocida")
-        self.__tarifa = tarifa
         self.__tarificado = 0
         self.__segundos = 0
 
@@ -80,5 +78,5 @@ class Mobile(Terminal):
             self.__tarificado += (a_tarifar * 30) / 100
 
     def __repr__(self):
-        return f"{self.__class__.__name__} Nº {self.numero} - {self.__segundos}s de conversación - tarificados " \
+        return f"Nº {self.numero} - {self.__segundos}s de conversación - tarificados " \
                f"{self.__tarificado} euros"
