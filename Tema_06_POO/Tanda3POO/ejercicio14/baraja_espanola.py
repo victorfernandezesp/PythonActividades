@@ -24,3 +24,14 @@
     Autor: Víctor Fernández España
     Curso: 2022-2023
 """
+from deck import Deck
+from card import Card
+
+
+class SpanishDeck(Deck):
+
+    def __init__(self):
+        numeros = "1 2 3 4 5 6 7 8 9 SOTA CABALLO REY".split()
+        palos = "OROS COPAS ESPADAS BASTOS".split()
+        cartas = [Card(n, s) for s in palos for n in numeros]
+        super().__init__(cartas)

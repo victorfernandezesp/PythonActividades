@@ -25,12 +25,12 @@
             print(cuenta3)
             Salida
 
-            Número de cta: 6942541557 Saldo: 0,00 €
-            Número de cta: 9319536518 Saldo: 1500,00 €
-            Número de cta: 7396941518 Saldo: 6000,00 €
-            Número de cta: 6942541557 Saldo: 1945,00 €
-            Número de cta: 9319536518 Saldo: 800,00 €
-            Número de cta: 7396941518 Saldo: 6175,00 €
+            Número de cta.: 6942541557 Saldo: 0,00 €
+            Número de cta.: 9319536518 Saldo: 1500,00 €
+            Número de cta.: 7396941518 Saldo: 6000,00 €
+            Número de cta.: 6942541557 Saldo: 1945,00 €
+            Número de cta.: 9319536518 Saldo: 800,00 €
+            Número de cta.: 7396941518 Saldo: 6175,00 €
 
     Autor: Víctor Fernández España
     Curso: 2022-2023
@@ -41,19 +41,22 @@ import random
 class BankAccount:
     __listado_cuentas = []
 
-    @classmethod
-    def listado_cuentas(cls):
-        return cls.__listado_cuentas
-
     def __init__(self, saldo=0):
-        while True:
-            posible_cuenta = random.randrange(1000000000, 9999999999)
-            if posible_cuenta not in BankAccount.__listado_cuentas:
-                break
+        posible_cuenta = self.__comprueba_cuenta(saldo)
         self.__numero_cuenta = posible_cuenta
         BankAccount.__listado_cuentas.append(posible_cuenta)
         self.__saldo = saldo
         self.__operacion_permitida = False
+
+    @staticmethod
+    def __comprueba_cuenta(saldo):
+        if saldo < 0:
+            raise ValueError("No puedes crear una cuenta con saldo negativa")
+        while True:
+            posible_cuenta = random.randrange(1, 9999999999)
+            if posible_cuenta not in BankAccount.__listado_cuentas:
+                break
+        return posible_cuenta
 
     @property
     def saldo(self):
@@ -64,15 +67,18 @@ class BankAccount:
         return self.__numero_cuenta
 
     def ingresar(self, cantidad):
+        if cantidad < 0:
+            raise ValueError("La cantidad no puede ser negativa")
         self.__saldo += cantidad
 
     def retirar(self, cantidad):
-
+        if cantidad < 0:
+            raise ValueError("La cantidad no puede ser negativa")
         if 0 > (self.__saldo - cantidad):
-            print("No puedo realizar esta operación, su saldo seria inferior a 0")
-        else:
-            self.__saldo -= cantidad
-            self.__operacion_permitida = True
+            raise ValueError("No puedo realizar esta operación, su saldo seria inferior a 0")
+
+        self.__saldo -= cantidad
+        self.__operacion_permitida = True
 
     def transferir(self, other, cantidad):
         self.retirar(cantidad)
@@ -80,4 +86,4 @@ class BankAccount:
             other.ingresar(cantidad)
 
     def __repr__(self):
-        return f"Número de cta: {self.__numero_cuenta} Saldo: {float(self.__saldo)} €"
+        return f"Número de cta: {self.__numero_cuenta:010d} Saldo: {float(self.__saldo)} €"

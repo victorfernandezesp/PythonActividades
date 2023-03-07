@@ -33,37 +33,48 @@
 """
 from typeguard import typechecked
 
-from Tema_06_POO.Tanda3POO.ejercicio11.terminal import Terminal
-from Tema_06_POO.Tanda3POO.ejercicio12.tarifas import Tarifas
+TARIFA_BISONTE = 30
+
+TARIFA_MONO = 12
+
+TARIFA_RATA = 6
 
 
 @typechecked
-class Mobile(Terminal):
+class Tarifas:
 
-    def __init__(self, num: str, tarifa: str):
-        Tarifas.comprueba_tarifa(tarifa)
-        self.__tarifa = Tarifas(tarifa)
-        super().__init__(num)
-        self.__tarificado = 0
+    def __init__(self, nombre: str, costo: str):
+        self.nombre = nombre
+        self.__costo = costo
 
     @property
-    def tarificado(self):
-        return self.__tarificado
+    def nombre(self):
+        return self.__nombre
+
+    @nombre.setter
+    def nombre(self, value: str):
+        self.comprueba_tarifa(value)
+        self.__nombre = value
+
+    @staticmethod
+    def comprueba_tarifa(value):
+        if value not in ["rata", "mono", "bisonte"]:
+            raise ValueError("Tarifa desconocida")
 
     @property
-    def tarifa(self):
-        return self.__tarifa
+    def costo(self):
+        return self.__costo
 
-    @tarifa.setter
-    def tarifa(self, value: str):
-        Tarifas.comprueba_tarifa(value)
-        self.__tarifa = value
+    @staticmethod
+    def tarifica(tarifa, minutos):
+        if tarifa == "rata":
+            return (minutos * TARIFA_RATA) / 100
 
-    def llama(self, other, segundos):
-        super().llama(other, segundos)
-        minutos = segundos / 60
-        self.__tarificado += Tarifas.tarifica(self.__tarifa, minutos)
+        elif tarifa == "mono":
+            return (minutos * TARIFA_MONO) / 100
+
+        else:
+            return (minutos * TARIFA_BISONTE) / 100
 
     def __repr__(self):
-        return f"Nº {self.numero} - {self.segundos_de_conversacion}s de conversación - tarificados " \
-               f"{self.__tarificado} euros"
+        return f"{self.__tarificado}"

@@ -24,35 +24,14 @@
     Autor: Víctor Fernández España
     Curso: 2022-2023
 """
-from typing import List
-
-from typeguard import typechecked
-
-from Tema_06_POO.Tanda3POO.ejercicio14.card import Card
-
-from Tema_06_POO.Tanda3POO.ejercicio14.deck import Deck
+from deck import Deck
+from card import Card
 
 
-@typechecked
-class Card_player:
+class EnglishDeck(Deck):
+
     def __init__(self):
-        self.__cartas_de_jugador = []
-
-    @property
-    def cartas_de_jugador(self):
-        return self.__cartas_de_jugador
-
-    def robar_carta_baraja(self):
-        carta = Deck.robar_carta()
-        self.cartas_de_jugador.append(carta)
-
-    def tirar_carta(self, carta: Card):
-        if carta not in self.__cartas_de_jugador:
-            raise ValueError(f"El jugador no puede deshacerse de la carta {carta}.")
-        self.cartas_de_jugador.remove(carta)
-
-    def recibir_cartas(self, cartas: List[Card]):
-        self.cartas_de_jugador.extend(cartas)
-
-    def __repr__(self):
-        return f"{self.__class__.__name__} Cartas del jugador: {self.cartas_de_jugador} "
+        numeros = "1 2 3 4 5 6 7 8 9 10 J Q K".split()
+        palos = "♠ ♡ ♢ ♣".split()
+        cartas = [Card(n, s) for s in palos for n in numeros]
+        super().__init__(cartas)

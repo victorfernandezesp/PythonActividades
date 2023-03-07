@@ -24,35 +24,41 @@
     Autor: Víctor Fernández España
     Curso: 2022-2023
 """
-from typing import List
-
-from typeguard import typechecked
 
 from Tema_06_POO.Tanda3POO.ejercicio14.card import Card
 
 from Tema_06_POO.Tanda3POO.ejercicio14.deck import Deck
 
+from Tema_06_POO.Tanda3POO.ejercicio14.card_player import Card_player
 
-@typechecked
-class Card_player:
-    def __init__(self):
-        self.__cartas_de_jugador = []
+"""from Tema_06_POO.Tanda3POO.ejercicio14.baraja_espanola import SpanishDeck
 
-    @property
-    def cartas_de_jugador(self):
-        return self.__cartas_de_jugador
+from Tema_06_POO.Tanda3POO.ejercicio14.baraja_inglesa import EnglishDeck"""
 
-    def robar_carta_baraja(self):
-        carta = Deck.robar_carta()
-        self.cartas_de_jugador.append(carta)
+Bastos1 = Card("Bastos", 1)
+Bastos2 = Card("Bastos", 2)
+Bastos3 = Card("Bastos", 3)
+Bastos4 = Card("Bastos", 4)
+Bastos5 = Card("Bastos", 5)
+Bastos6 = Card("Bastos", 6)
+Bastos7 = Card("Bastos", 7)
+Bastos8 = Card("Bastos", 8)
+Bastos9 = Card("Bastos", 9)
+Bastos10 = Card("Bastos", 10)
+Bastos11 = Card("Bastos", 11)
+Bastos12 = Card("Bastos", 12)
 
-    def tirar_carta(self, carta: Card):
-        if carta not in self.__cartas_de_jugador:
-            raise ValueError(f"El jugador no puede deshacerse de la carta {carta}.")
-        self.cartas_de_jugador.remove(carta)
+"""baraja_simple = Deck(Bastos1, Bastos2, Bastos3, Bastos4, Bastos5, Bastos6, Bastos7, Bastos8, Bastos9, Bastos10,
+                     Bastos11, Bastos12)
+print(baraja_simple)"""
 
-    def recibir_cartas(self, cartas: List[Card]):
-        self.cartas_de_jugador.extend(cartas)
+jugador1 = Card_player()
 
-    def __repr__(self):
-        return f"{self.__class__.__name__} Cartas del jugador: {self.cartas_de_jugador} "
+jugador1.robar_carta_baraja()
+print(jugador1.cartas_de_jugador)
+
+jugador1.recibir_cartas(2)
+print(jugador1.cartas_de_jugador)
+
+jugador1.tirar_carta("Bastos1")
+print(jugador1.cartas_de_jugador)

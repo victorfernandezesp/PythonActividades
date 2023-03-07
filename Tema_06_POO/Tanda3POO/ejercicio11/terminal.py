@@ -35,6 +35,8 @@
 """
 from typeguard import typechecked
 
+LONGITUD_NUMERO = 9
+
 
 @typechecked
 class Terminal:
@@ -45,28 +47,37 @@ class Terminal:
         return cls.__listado_terminales
 
     def __init__(self, numero: str):
-        primer_numero = numero[0]
-        if primer_numero not in ["6", "7", "9"]:
-            raise ValueError("El numero debe empezar por 6, 7 o 9")
-        if numero in Terminal.__listado_terminales:
-            raise ValueError("El numero ya esta registrado")
-
+        self.comprueba_numero(numero)
         Terminal.__listado_terminales.append(numero)
-        numero = numero[:3] + " " + numero[3:5] + " " + numero[5:7] + " " + numero[7:9]
         self.__numero = numero
-        self.__segundos = 0
+        self.__segundos_de_conversacion = 0
+
+    @staticmethod
+    def comprueba_numero(numero):
+        if len(numero) != LONGITUD_NUMERO or not numero.isdigit():
+            raise ValueError(f"El número debe tener una longitud de {LONGITUD_NUMERO} dígitos.")
+        if numero[0] not in ["6", "7", "9"]:
+            raise ValueError("El número debe empezar por 6, 7 o 9.")
+        if numero in Terminal.__listado_terminales:
+            raise ValueError("El número ya esta registrado.")
 
     @property
     def numero(self):
-        return self.__numero
+        return self.__numero[:3] + " " + self.__numero[3:5] + " " + self.__numero[5:7] + " " + self.__numero[7:9]
 
     @property
-    def segundos(self):
-        return self.__segundos
+    def segundos_de_conversacion(self):
+        return self.__segundos_de_conversacion
 
     def llama(self, other, segundos):
-        self.__segundos += segundos
-        other.__segundos += segundos
+        if segundos < 0:
+            raise ValueError("No puedes hacer llamadas de segundos negativos.")
+
+        if self.__numero == other.__numero:
+            raise ValueError("No puedes llamarte a ti mismo.")
+
+        self.__segundos_de_conversacion += segundos
+        other.__segundos_de_conversacion += segundos
 
     def __repr__(self):
-        return f"Nº {self.numero} - {self.__segundos}s de conversación "
+        return f"Nº {self.numero} - {self.__segundos_de_conversacion}s de conversación "

@@ -30,6 +30,7 @@ import sys
 
 from Tema_06_POO.Tanda3POO.ejercicio10.bike import Bike
 from Tema_06_POO.Tanda3POO.ejercicio10.car import Car
+from Tema_06_POO.Tanda3POO.ejercicio10.vehiculo import Vehicle
 from bibliotecafunciones.util.menu import Menu
 
 SALIDA_DEL_PROGRAMA_CON_EXITO = 0
@@ -70,7 +71,7 @@ while True:
 
         case 7:
             total = bici.kilometros_viajados + coche.kilometros_viajados
-            print(f"{bici.kilometros_totales()} KM")
+            print(f"{Vehicle.kilometros_totales()} KM")
 
         case 8:
             sys.exit(SALIDA_DEL_PROGRAMA_CON_EXITO)

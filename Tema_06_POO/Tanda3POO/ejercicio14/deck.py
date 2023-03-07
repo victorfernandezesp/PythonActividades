@@ -24,3 +24,36 @@
     Autor: Víctor Fernández España
     Curso: 2022-2023
 """
+import random
+from typing import List
+from typeguard import typechecked
+from Tema_06_POO.Tanda3POO.ejercicio14.card import Card
+
+
+@typechecked
+class Deck:
+    def __init__(self, *cartas: List[Card]):
+        self.__baraja = list(cartas)
+        self.barajar_cartas()
+
+    @property
+    def tamano(self):
+        return len(self.__cards)
+
+    def reparte_cartas(self, jugador, num_cartas: int):
+        lista_de_cartas_a_repartir = []
+        for i in range(num_cartas):
+            carta_sacada = self.__baraja.pop(0)
+            lista_de_cartas_a_repartir.append(carta_sacada)
+        jugador.recives(lista_de_cartas_a_repartir)
+
+    def robar_carta(self):
+        if self.tamano == 0:
+            raise ValueError("No quedan cartas en la baraja")
+        return self.baraja.pop(0)
+
+    def barajar_cartas(self):
+        random.shuffle(self.__baraja)
+
+    def __repr__(self):
+        return f"{self.__class__.__name__} Baraja: {self.__baraja}"

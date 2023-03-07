@@ -24,3 +24,22 @@
     Autor: Víctor Fernández España
     Curso: 2022-2023
 """
+from typeguard import typechecked
+
+
+@typechecked
+class Card:
+    def __init__(self, palo: str, valor: str):
+        self.__palo = palo
+        self.__valor = valor
+
+    @property
+    def palo(self):
+        return self.__palo
+
+    @property
+    def valor(self):
+        return self.__valor
+
+    def __repr__(self):
+        return f"{self.__class__.__name__} Palo: {self.__palo} Valor: {self.__valor}"
