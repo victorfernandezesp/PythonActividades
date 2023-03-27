@@ -33,19 +33,14 @@
 """
 from typeguard import typechecked
 
-TARIFA_BISONTE = 30
-
-TARIFA_MONO = 12
-
-TARIFA_RATA = 6
-
 
 @typechecked
 class Tarifas:
+    __tarifas_disponibles = ["rata", "mono", "bisonte"]
+    __costo_tarifas = [6, 12, 30]
 
-    def __init__(self, nombre: str, costo: str):
+    def __init__(self, nombre: str):
         self.nombre = nombre
-        self.__costo = costo
 
     @property
     def nombre(self):
@@ -58,23 +53,24 @@ class Tarifas:
 
     @staticmethod
     def comprueba_tarifa(value):
-        if value not in ["rata", "mono", "bisonte"]:
+        if value not in Tarifas.__tarifas_disponibles:
             raise ValueError("Tarifa desconocida")
 
-    @property
-    def costo(self):
-        return self.__costo
+    @staticmethod
+    def anade_tarifa(nombre_tarifa: str, costo_tarifa: int):
+        Tarifas.__tarifas_disponibles.append(nombre_tarifa)
+        Tarifas.__costo_tarifas.append(costo_tarifa)
 
     @staticmethod
     def tarifica(tarifa, minutos):
         if tarifa == "rata":
-            return (minutos * TARIFA_RATA) / 100
+            return (minutos * Tarifas.__costo_tarifas[0]) / 100
 
         elif tarifa == "mono":
-            return (minutos * TARIFA_MONO) / 100
+            return (minutos * Tarifas.__costo_tarifas[1]) / 100
 
         else:
-            return (minutos * TARIFA_BISONTE) / 100
+            return (minutos * Tarifas.__costo_tarifas[2]) / 100
 
     def __repr__(self):
-        return f"{self.__tarificado}"
+        return f"{self.__nombre}"

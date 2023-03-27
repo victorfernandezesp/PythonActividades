@@ -24,8 +24,8 @@
     Autor: Víctor Fernández España
     Curso: 2022-2023
 """
-from deck import Deck
-from card import Card
+from Tema_06_POO.Tanda3POO.ejercicio14.deck import Deck
+from Tema_06_POO.Tanda3POO.ejercicio14.card import Card
 
 
 class SpanishDeck(Deck):

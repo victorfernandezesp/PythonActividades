@@ -30,8 +30,8 @@ from typeguard import typechecked
 @typechecked
 class Card:
     def __init__(self, palo: str, valor: str):
-        self.__palo = palo
-        self.__valor = valor
+        self.palo = palo
+        self.valor = valor
 
     @property
     def palo(self):
@@ -41,5 +41,15 @@ class Card:
     def valor(self):
         return self.__valor
 
+    @palo.setter
+    def palo(self, value):
+        self.__palo = value
+
+    @valor.setter
+    def valor(self, value):
+        self.__valor = value
+
+    def __eq__(self, other):
+        return self.__valor == other.__valor and self.__palo == other.__palo
     def __repr__(self):
         return f"{self.__class__.__name__} Palo: {self.__palo} Valor: {self.__valor}"

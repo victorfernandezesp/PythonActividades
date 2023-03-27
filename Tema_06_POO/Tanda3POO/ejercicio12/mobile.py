@@ -62,7 +62,7 @@ class Mobile(Terminal):
     def llama(self, other, segundos):
         super().llama(other, segundos)
         minutos = segundos / 60
-        self.__tarificado += Tarifas.tarifica(self.__tarifa, minutos)
+        self.__tarificado += Tarifas.tarifica(str(self.__tarifa), minutos)
 
     def __repr__(self):
         return f"Nº {self.numero} - {self.segundos_de_conversacion}s de conversación - tarificados " \
