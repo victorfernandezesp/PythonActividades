@@ -36,9 +36,17 @@ class Carrito:
         return self.__coste_del_carrito
 
     def agrega(self, elemento: Elemento):
-        self.__objetos_del_carrito += elemento.cantidad
-        self.__coste_del_carrito += elemento.subtotal
-        self.__contenido.append(elemento)
+        for i in range(len(self.__contenido)):
+            elemento_de_lista = self.__contenido[i]
+            if elemento_de_lista.nombre == elemento.nombre:
+                elemento_de_lista.cantidad += 1
+                elemento_de_lista.subtotal += elemento.precio
+        # TODO aunque las cuentas estan bien me refleja el producto repetido pese a que su cantidad y su total no se
+        #  sume
+        if elemento not in self.__contenido:
+            self.__objetos_del_carrito += elemento.cantidad
+            self.__coste_del_carrito += elemento.subtotal
+            self.__contenido.append(elemento)
 
     def numero_elementos(self):
         return self.__objetos_del_carrito
@@ -50,7 +58,7 @@ class Carrito:
         for i in self.__contenido:
             elemento: Elemento = i
             print(f"Articulo: {elemento.nombre}, Coste:{elemento.precio}, Cantidad: {elemento.cantidad}, "
-                  f"Subtotal: {elemento.subtotal}")
+                  f"Subtotal: {round(elemento.subtotal, 4)}")
         return ""
 
     def __repr__(self):

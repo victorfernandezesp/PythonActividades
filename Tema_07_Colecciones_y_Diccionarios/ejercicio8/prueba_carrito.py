@@ -13,8 +13,8 @@
     Autor: Víctor Fernández España
     Curso: 2022-2023
 """
-from Tema_07_Colecciones_y_Diccionarios.ejercicio7.carrito import Carrito
-from Tema_07_Colecciones_y_Diccionarios.ejercicio7.elemento import Elemento
+from Tema_07_Colecciones_y_Diccionarios.ejercicio8.carrito import Carrito
+from Tema_07_Colecciones_y_Diccionarios.ejercicio8.elemento import Elemento
 
 mi_carrito = Carrito()
 mi_carrito.agrega(Elemento("Tarjeta SD 64Gb", 19.95, 2))
