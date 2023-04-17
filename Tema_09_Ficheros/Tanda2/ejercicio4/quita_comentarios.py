@@ -28,9 +28,8 @@ def main():
     cadena = elimina_comentarios_en_linea(cadena, "//", "\n")
     cadena = elimina_comentarios_en_bloque(cadena, "/*", "*/")
 
-    print("------------------")
-    print(cadena)
-    print("------------------")
+    with open("Holav2.java", 'w') as archivo_para_escritura1:
+        archivo_para_escritura1.write(cadena)
 
 
 def elimina_comentarios_en_linea(cadena, caracter_inicial, caracter_final):
