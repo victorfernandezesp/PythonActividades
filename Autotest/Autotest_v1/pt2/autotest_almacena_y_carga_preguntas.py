@@ -16,16 +16,26 @@ def guarda_preguntas():
     with open(nombre_de_fichero, 'w', encoding='utf-8') as archivo_a_escribir:
         while True:
             titulo_pregunta = input("Introduce el título de la pregunta:    ")
-            archivo_a_escribir.write(titulo_pregunta)
+            archivo_a_escribir.write(titulo_pregunta + "\n")
             enunciado_pregunta = input("Introduce el enunciado de la pregunta:  ")
-            archivo_a_escribir.write(enunciado_pregunta)
-            archivo_a_escribir.write(".")
+            archivo_a_escribir.write(enunciado_pregunta + "\n")
+            archivo_a_escribir.write("." + "\n")
             for opcion in range(4):
                 opcion_de_pregunta = input("Introduce una opción de la pregunta:    ")
-                valor_de_pregunta = input(float("Introduce el valor de la opción de la pregunta:    "))
-                archivo_a_escribir.write(opcion_de_pregunta)
-                archivo_a_escribir.write(valor_de_pregunta)
-            archivo_a_escribir.write("---")
+                """while True:"""
+                valor_de_pregunta = input("Introduce el valor de la opción de la pregunta:    ")
+                """if isinstance(valor_de_pregunta, float):
+                    break
+                else:
+                    print("Introduce un número real")
+                    continue"""
+                archivo_a_escribir.write(opcion_de_pregunta + "\n")
+                archivo_a_escribir.write(valor_de_pregunta + "\n")
+            archivo_a_escribir.write("---" + "\n")
+            pregunta_usuario_si_sigue = input("Si no quieres introducir mas preguntas introduce un (N):     ")
+            if pregunta_usuario_si_sigue.upper() == "N":
+                break
+
 
 
 def main():
