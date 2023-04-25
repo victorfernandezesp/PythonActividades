@@ -22,13 +22,14 @@ def guarda_preguntas():
             archivo_a_escribir.write("." + "\n")
             for opcion in range(4):
                 opcion_de_pregunta = input("Introduce una opción de la pregunta:    ")
-                """while True:"""
-                valor_de_pregunta = input("Introduce el valor de la opción de la pregunta:    ")
-                """if isinstance(valor_de_pregunta, float):
+                while True:
+                    valor_de_pregunta = input("Introduce el valor de la opción de la pregunta:    ")
+                    try:
+                        comprueba_valor_de_pregunta_es_float = float(valor_de_pregunta)
+                    except:
+                        print("Introduce un número real")
+                        continue
                     break
-                else:
-                    print("Introduce un número real")
-                    continue"""
                 archivo_a_escribir.write(opcion_de_pregunta + "\n")
                 archivo_a_escribir.write(valor_de_pregunta + "\n")
             archivo_a_escribir.write("---" + "\n")
