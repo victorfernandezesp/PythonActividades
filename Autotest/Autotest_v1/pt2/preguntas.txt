@@ -1,0 +1,60 @@
+Planta vs Agua
+En relación con los tipos Pokemon, ¿Qué relación tiene el tipo Planta Vs Agua?
+.
+Muy efectivo
+1
+Efectivo
+-0.25
+Poco efectivo
+-0.50
+No afecta
+-0.75
+---
+Normal vs Normal
+En relación con los tipos Pokemon, ¿Qué relación tiene el tipo Normal Vs Normal?
+.
+Muy efectivo
+-0.25
+Efectivo
+1
+Poco efectivo
+-0.25
+No afecta
+-0.50
+---
+Dragon vs Hada
+En relación con los tipos Pokemon, ¿Qué relación tiene el tipo Dragon Vs Hada
+.
+Muy efectivo
+-0.75
+Efectivo
+-0.25
+Poco efectivo
+1
+No afecta
+-0.25
+---
+Normal vs Fantasma
+En relación con los tipos Pokemon, ¿Qué relación tiene el tipo Normal Vs Fantasma?
+.
+Muy efectivo
+-0.75
+Efectivo
+-0.50
+Poco efectivo
+-0.25
+No afecta
+1
+---
+Dragon vs Dragon
+En relación con los tipos Pokemon, ¿Qué relación tiene el tipo Dragon Vs Dragon?
+.
+Muy efectivo
+1
+Efectivo
+-0.25
+Poco efectivo
+-0.75
+No afecta
+-0.50
+---
