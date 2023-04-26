@@ -1,0 +1,112 @@
+[
+  {
+    "titulo": "Planta vs Agua",
+    "enunciado": "En relación con los tipos Pokemon, ¿Qué relación tiene el tipo Planta Vs Agua?",
+    "opciones": [
+      {
+        "opcion": "Muy efectivo",
+        "valor": 1
+      },
+      {
+        "opcion": "Efectivo",
+        "valor": -0.25
+      },
+      {
+        "opcion": "Poco efectivo",
+        "valor": -0.50
+      },
+      {
+        "opcion": "No afecta",
+        "valor": -0.75
+      }
+    ]
+  },
+  {
+    "titulo": "Normal vs Normal",
+    "enunciado": "En relación con los tipos Pokemon, ¿Qué relación tiene el tipo Normal Vs Normal?",
+    "opciones": [
+      {
+        "opcion": "Muy efectivo",
+        "valor": -0.25
+      },
+      {
+        "opcion": "Efectivo",
+        "valor": 1
+      },
+      {
+        "opcion": "Poco efectivo",
+        "valor": -0.25
+      },
+      {
+        "opcion": "No afecta",
+        "valor": -0.50
+      }
+    ]
+  },
+  {
+    "titulo": "Dragon vs Hada",
+    "enunciado": "En relación con los tipos Pokemon, ¿Qué relación tiene el tipo Dragon Vs Hada?",
+    "opciones": [
+      {
+        "opcion": "Muy efectivo",
+        "valor": -0.75
+      },
+      {
+        "opcion": "Efectivo",
+        "valor": -0.25
+      },
+      {
+        "opcion": "Poco efectivo",
+        "valor": 1
+      },
+      {
+        "opcion": "No afecta",
+        "valor": -0.25
+      }
+    ]
+  },
+  {
+    "titulo": "Normal vs Fantasma",
+    "enunciado": "En relación con los tipos Pokemon, ¿Qué relación tiene el tipo Normal Vs Fantasma?",
+    "opciones": [
+      {
+        "opcion": "Muy efectivo",
+        "valor": -0.75
+      },
+      {
+        "opcion": "Efectivo",
+        "valor": -0.50
+      },
+      {
+        "opcion": "Poco efectivo",
+        "valor": -0.25
+      },
+      {
+        "opcion": "No afecta",
+        "valor": 1
+      }
+    ]
+  },
+  {
+    "titulo": "Dragon vs Dragon",
+    "enunciado": "En relación con los tipos Pokemon, ¿Qué relación tiene el tipo Dragon Vs Dragon?",
+    "opciones": [
+      {
+        "opcion": "Muy efectivo",
+        "valor": 1
+      },
+      {
+        "opcion": "Efectivo",
+        "valor": -0.25
+      },
+      {
+        "opcion": "Poco efectivo",
+        "valor": -0.75
+      },
+      {
+        "opcion": "No afecta",
+        "valor": -0.50
+      }
+    ]
+  }
+]
