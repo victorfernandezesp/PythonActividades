@@ -12,30 +12,6 @@ import sys
 
 from Autotest.Autotest_v1.pt2.question import Question
 
-def guarda_preguntas():
-    nombre_de_fichero = sys.argv[1]
-    with open(nombre_de_fichero, encoding='utf-8') as archivo_a_escribir:
-        while True:
-            titulo_pregunta = input("Introduce el título de la pregunta:    ")
-            enunciado_pregunta = input("Introduce el enunciado de la pregunta:  ")
-            for opcion in range(4):
-                opcion_de_pregunta = input("Introduce una opción de la pregunta:    ")
-                while True:
-                    valor_de_pregunta = input("Introduce el valor de la opción de la pregunta:    ")
-                    try:
-                        comprueba_valor_de_pregunta_es_float = float(valor_de_pregunta)
-                    except:
-                        print("Introduce un número real")
-                        continue
-                    break
-            # TODO escribir el python, tengo dudas sobre como escribir las opciones ademas da IO error
-            json.dump(ensure_ascii=False, indent=4)
-            pregunta_usuario_si_sigue = input("Si no quieres introducir mas preguntas introduce un (N):     ")
-            if pregunta_usuario_si_sigue.upper() == "N":
-                break
-
-
-
 def main():
     nombre_de_fichero = sys.argv[1]
     with open(nombre_de_fichero, encoding='utf-8') as cadena_de_preguntas:
