@@ -21,13 +21,15 @@ class Respuesta_No_Encontrada(ValueError):
 @typechecked
 class Question:
     __contador_preguntas = 0
-
+    __nota_final = 0
+    __nota_final_usuario = 0
     def __init__(self, nombre: str, enunciado: str, elecciones: list[tuple[str, float]], puntuacion: float = 1):
         self.__nombre = nombre
         self.__enunciado = enunciado
         self.__elecciones = elecciones
         self.__puntuacion = puntuacion
         Question.__contador_preguntas += 1
+        Question.__nota_final += puntuacion
 
     @property
     def nombre(self):
@@ -65,18 +67,26 @@ class Question:
         for i in self.__elecciones:
             elecciones_de_pregunta.append(i[0])
         if respuesta not in elecciones_de_pregunta and respuesta != "":
-            raise Respuesta_No_Encontrada()
+            puntuacion_obtenida = -0.50
         elif respuesta == "":
             puntuacion_obtenida = 0
             self.imprimir_puntuacion_obtenida(puntuacion_obtenida)
         else:
             puntuacion_obtenida = self.averigua_puntuacion_sacada_de_la_pregunta(elecciones_de_pregunta, respuesta)
             self.imprimir_puntuacion_obtenida(puntuacion_obtenida)
+        Question.__nota_final_usuario += puntuacion_obtenida
 
     @staticmethod
     def imprimir_puntuacion_obtenida(puntuacion_obtenida):
         sleep(1.25)
         print(f"Puntuación obtenida: {puntuacion_obtenida}")
+        sleep(1.25)
+
+    @staticmethod
+    def imprimir_puntuacion_final():
+        sleep(1.25)
+        nota_sobre_10 = (Question.__nota_final_usuario / Question.__nota_final) * 10
+        print(f"Puntuación final: {Question.__nota_final_usuario} / {Question.__nota_final} ({nota_sobre_10})")
         sleep(1.25)
 
     def averigua_puntuacion_sacada_de_la_pregunta(self, elecciones_de_pregunta, respuesta):

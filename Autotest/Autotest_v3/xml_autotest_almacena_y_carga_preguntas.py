@@ -54,6 +54,8 @@ def main():
         pregunta_usuario = Question(nombre, enunciado, opciones, int(puntuacion_base))
         pregunta_usuario.muestra_pregunta()
         pregunta_usuario.respuesta_usuario()
+    pregunta_usuario.imprimir_puntuacion_final()
+
 
 def quita_salto_de_linea_y_espacios_innecesarios(parametro):
     parametro = parametro.replace('\n', '')
