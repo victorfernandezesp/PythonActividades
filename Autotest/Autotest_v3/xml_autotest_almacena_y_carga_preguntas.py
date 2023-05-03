@@ -24,44 +24,25 @@ def main():
         if nombre is None:
             nombre = ""
         puntuacion_base = root[i].get("puntuacion_base")
-        enunciado = root[i][0].text
+        enunciado = root[i][0].text.strip()
 
-        opcion1 = root[i][1][0].text
+        opcion1 = root[i][1][0].text.strip()
         valor_opcion1 = root[i][1][0].get("valor")
 
-        opcion2 = root[i][1][1].text
+        opcion2 = root[i][1][1].text.strip()
         valor_opcion2 = root[i][1][1].get("valor")
 
-        opcion3 = root[i][1][2].text
+        opcion3 = root[i][1][2].text.strip()
         valor_opcion3 = root[i][1][2].get("valor")
 
-        opcion4 = root[i][1][3].text
+        opcion4 = root[i][1][3].text.strip()
         valor_opcion4 = root[i][1][3].get("valor")
-
-        nombre = quita_salto_de_linea_y_espacios_innecesarios(nombre)
-        enunciado = quita_salto_de_linea_y_espacios_innecesarios(enunciado)
-        opcion1 = quita_salto_de_linea_y_espacios_innecesarios(opcion1)
-        valor_opcion1 = quita_salto_de_linea_y_espacios_innecesarios(valor_opcion1)
-        opcion2 = quita_salto_de_linea_y_espacios_innecesarios(opcion2)
-        valor_opcion2 = quita_salto_de_linea_y_espacios_innecesarios(valor_opcion2)
-        opcion3 = quita_salto_de_linea_y_espacios_innecesarios(opcion3)
-        valor_opcion3 = quita_salto_de_linea_y_espacios_innecesarios(valor_opcion3)
-        opcion4 = quita_salto_de_linea_y_espacios_innecesarios(opcion4)
-        valor_opcion4 = quita_salto_de_linea_y_espacios_innecesarios(valor_opcion4)
-        puntuacion_base = quita_salto_de_linea_y_espacios_innecesarios(puntuacion_base)
 
         opciones = ([(opcion1, float(valor_opcion1)), (opcion2, float(valor_opcion2)), (opcion3, float(valor_opcion3)), (opcion4, float(valor_opcion4))])
         pregunta_usuario = Question(nombre, enunciado, opciones, int(puntuacion_base))
         pregunta_usuario.muestra_pregunta()
         pregunta_usuario.respuesta_usuario()
     pregunta_usuario.imprimir_puntuacion_final()
-
-
-def quita_salto_de_linea_y_espacios_innecesarios(parametro):
-    parametro = parametro.replace('\n', '')
-    parametro = parametro.replace('  ', '')
-
-    return parametro
 
 
 def comprueba_existe_fichero(fichero):
