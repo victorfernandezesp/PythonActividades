@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <test>
-    <pregunta nombre="Planta vs Agua">
+    <pregunta nombre="Planta vs Agua" puntuacion_base="1">
         <enunciado>
             En relación con los tipos Pokemon, ¿Qué relación tiene el tipo Planta Vs Agua?
         </enunciado>
@@ -19,7 +19,7 @@
             </opcion>
         </opciones>
     </pregunta>
-    <pregunta nombre="Normal vs Normal">
+    <pregunta nombre="Normal vs Normal" puntuacion_base="1">
         <enunciado>
             En relación con los tipos Pokemon, ¿Qué relación tiene el tipo Normal vs Normal?
         </enunciado>
@@ -38,7 +38,7 @@
             </opcion>
         </opciones>
     </pregunta>
-    <pregunta nombre="Dragon vs Hada">
+    <pregunta nombre="Dragon vs Hada" puntuacion_base="1">
         <enunciado>
             En relación con los tipos Pokemon, ¿Qué relación tiene el tipo Dragon vs Hada?
         </enunciado>
@@ -57,7 +57,7 @@
             </opcion>
         </opciones>
     </pregunta>
-    <pregunta nombre="Normal vs Fantasma">
+    <pregunta nombre="Normal vs Fantasma" puntuacion_base="1">
         <enunciado>
             En relación con los tipos Pokemon, ¿Qué relación tiene el tipo Normal vs Fantasma?
         </enunciado>
@@ -76,7 +76,7 @@
             </opcion>
         </opciones>
     </pregunta>
-    <pregunta nombre="Dragon vs Dragon">
+    <pregunta nombre="Dragon vs Dragon" puntuacion_base="1">
         <enunciado>
             En relación con los tipos Pokemon, ¿Qué relación tiene el tipo Dragon vs Dragon?
         </enunciado>

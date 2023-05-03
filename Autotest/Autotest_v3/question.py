@@ -51,7 +51,7 @@ class Question:
 
     def muestra_pregunta(self):
         print(f"------------------------------------------------")
-        print(f"Pregunta {Question.__contador_preguntas}:")
+        print(f"Pregunta {Question.__contador_preguntas}: {self.__nombre}")
         print(f"{self.__enunciado}")
         print(f"------------------------------------------------")
         print(f"Opciones:")
