@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test>
+    <pregunta nombre="Planta vs Agua">
+        <enunciado>
+            En relación con los tipos Pokemon, ¿Qué relación tiene el tipo Planta Vs Agua?
+        </enunciado>
+        <opciones>
+            <opcion valor="1">
+                Muy efectivo
+            </opcion>
+            <opcion valor="-0.25">
+                Efectivo
+            </opcion>
+            <opcion valor="-0.25">
+                Poco efectivo
+            </opcion>
+            <opcion valor="-0.25">
+                No afecta
+            </opcion>
+        </opciones>
+    </pregunta>
+    <pregunta nombre="Normal vs Normal">
+        <enunciado>
+            En relación con los tipos Pokemon, ¿Qué relación tiene el tipo Normal vs Normal?
+        </enunciado>
+        <opciones>
+            <opcion valor="-0.25">
+                Muy efectivo
+            </opcion>
+            <opcion valor="1">
+                Efectivo
+            </opcion>
+            <opcion valor="-0.25">
+                Poco efectivo
+            </opcion>
+            <opcion valor="-0.25">
+                No afecta
+            </opcion>
+        </opciones>
+    </pregunta>
+    <pregunta nombre="Dragon vs Hada">
+        <enunciado>
+            En relación con los tipos Pokemon, ¿Qué relación tiene el tipo Dragon vs Hada?
+        </enunciado>
+        <opciones>
+            <opcion valor="-0.25">
+                Muy efectivo
+            </opcion>
+            <opcion valor="-0.25">
+                Efectivo
+            </opcion>
+            <opcion valor="1">
+                Poco efectivo
+            </opcion>
+            <opcion valor="-0.25">
+                No afecta
+            </opcion>
+        </opciones>
+    </pregunta>
+    <pregunta nombre="Normal vs Fantasma">
+        <enunciado>
+            En relación con los tipos Pokemon, ¿Qué relación tiene el tipo Normal vs Fantasma?
+        </enunciado>
+        <opciones>
+            <opcion valor="-0.25">
+                Muy efectivo
+            </opcion>
+            <opcion valor="-0.25">
+                Efectivo
+            </opcion>
+            <opcion valor="-0.25">
+                Poco efectivo
+            </opcion>
+            <opcion valor="1">
+                No afecta
+            </opcion>
+        </opciones>
+    </pregunta>
+    <pregunta nombre="Dragon vs Dragon">
+        <enunciado>
+            En relación con los tipos Pokemon, ¿Qué relación tiene el tipo Dragon vs Dragon?
+        </enunciado>
+        <opciones>
+            <opcion valor="1">
+                Muy efectivo
+            </opcion>
+            <opcion valor="-0.25">
+                Efectivo
+            </opcion>
+            <opcion valor="-0.25">
+                Poco efectivo
+            </opcion>
+            <opcion valor="-0.25">
+                No afecta
+            </opcion>
+        </opciones>
+    </pregunta>
+</test>
