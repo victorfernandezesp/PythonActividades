@@ -9,26 +9,30 @@
     Autor: Víctor Fernández España
     Curso: 2022-2023
 """
+
 import sys
-
-palabra1 = sys.argv[1]
-palabra2 = sys.argv[2]
-palabra3 = sys.argv[3]
-palabra4 = sys.argv[4]
-nombre_archivo = sys.argv[5]
-
-with open(nombre_archivo + ".txt", 'w') as archivo:
-    archivo.write(palabra1 + "\n")
-    archivo.write(palabra2 + "\n")
-    archivo.write(palabra3 + "\n")
-    archivo.write(palabra4 + "\n")
-
 lista = []
-with open(nombre_archivo + ".txt", 'r') as archivo2:
-    recorre = archivo2.readlines()
-    for i in recorre:
-        lista.append(i)
-lista.sort()
-with open(nombre_archivo + "_short.txt", 'w') as archivo3:
-    for j in lista:
-        archivo3.write(j)
+if len(sys.argv) != 2:
+    print("El número de argumentos es erróneo", file=sys.stderr)
+    sys.exit(1)
+try:
+    nombre_archivo = sys.argv[1]
+    ultimo_punto = nombre_archivo.rfind(".")
+    ultimo_archivo = nombre_archivo[:ultimo_punto] + "_short" + nombre_archivo[ultimo_punto:]
+    with open(nombre_archivo, 'r') as archivo2:
+        recorre = archivo2.readlines()
+        for i in recorre:
+            lista.append(i)
+
+    lista.sort()
+    with open(ultimo_archivo, 'w') as archivo3:
+        for j in lista:
+            archivo3.write(j)
+
+except FileNotFoundError:
+    print("ERROR. El archivo no existe")
+
+except IndexError:
+    print("ERROR. No has pasado por linea de argumentos")
+
+print(f"Éxito con la operación, {ultimo_archivo} creado correctamente.")
