@@ -16,50 +16,56 @@
 """
 import sys
 
-nombre_archivo1 = sys.argv[1]
-nombre_archivo2 = sys.argv[2]
-nombre_archivo_final = sys.argv[3]
-lista_mas_grande = 0
 
-with open(nombre_archivo1 + ".txt", 'w') as archivo_para_escritura1:
-    while True:
-        palabra = input(f"Que palabra quieres guardar en el archivo: {nombre_archivo1}(Introduce enter si no quieres "
-                        f"introducir mas):  ")
-        if palabra == "":
-            print("______________________________________")
-            break
-        archivo_para_escritura1.write(palabra + "\n")
+def main():
+    comprueba_numero_de_argumentos()
+    nombre_archivo1 = sys.argv[1]
+    nombre_archivo2 = sys.argv[2]
+    nombre_archivo_final = sys.argv[3]
 
-lista1 = []
-with open(nombre_archivo1 + ".txt", 'r') as archivo_para_lectura1:
-    recorre = archivo_para_lectura1.readlines()
-    for i in recorre:
-        lista1.append(i)
+    lista1 = almacena_en_lista_contenido_del_archivo(nombre_archivo1)
+    lista2 = almacena_en_lista_contenido_del_archivo(nombre_archivo2)
+
+    archivo_mas_grande = almacena_longitud_del_archivo_mas_grande(lista1, lista2)
+
+    mezcla_ficheros(archivo_mas_grande, lista1, lista2, nombre_archivo_final)
+    print(f"Éxito con la operación, {nombre_archivo_final} creado correctamente.")
 
 
-with open(nombre_archivo2 + ".txt", 'w') as archivo_para_escritura2:
-    while True:
-        palabra2 = input(f"Que palabra quieres guardar en el archivo: {nombre_archivo2}(Introduce enter si no quieres "
-                        f"introducir mas):  ")
-        if palabra2 == "":
-            print("______________________________________")
-            break
-        archivo_para_escritura2.write(palabra2 + "\n")
+def mezcla_ficheros(archivo_mas_grande, lista1, lista2, nombre_archivo_final):
+    with open(nombre_archivo_final, 'w') as archivo3:
+        for j in range(archivo_mas_grande):
+            if j < len(lista1):
+                archivo3.write(str(lista1[j]))
+            if j < len(lista2):
+                archivo3.write(str(lista2[j]))
 
-lista2 = []
-with open(nombre_archivo2 + ".txt", 'r') as archivo_para_lectura2:
-    recorre = archivo_para_lectura2.readlines()
-    for i in recorre:
-        lista2.append(i)
 
-if len(lista1) > len(lista2) or len(lista1) == len(lista2):
-    lista_mas_grande = len(lista1)
-else:
-    lista_mas_grande = len(lista2)
+def almacena_longitud_del_archivo_mas_grande(lista1, lista2):
+    if len(lista1) > len(lista2) or len(lista1) == len(lista2):
+        archivo_mas_grande = len(lista1)
+    else:
+        archivo_mas_grande = len(lista2)
+    return archivo_mas_grande
 
-with open(nombre_archivo_final + ".txt", 'w') as archivo3:
-    for j in range(lista_mas_grande):
-        if j < len(lista1):
-            archivo3.write(str(lista1[j]))
-        if j < len(lista2):
-            archivo3.write(str(lista2[j]))
+
+def almacena_en_lista_contenido_del_archivo(archivo):
+    lista = []
+    try:
+        with open(archivo, 'r') as archivo_para_lectura:
+            recorre = archivo_para_lectura.readlines()
+            for i in recorre:
+                lista.append(i)
+    except FileNotFoundError:
+        print("ERROR. El archivo no existe")
+    return lista
+
+
+def comprueba_numero_de_argumentos():
+    if len(sys.argv) != 4:
+        print("El número de argumentos es erróneo", file=sys.stderr)
+        sys.exit(1)
+
+
+if __name__ == '__main__':
+    main()

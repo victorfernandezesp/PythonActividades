@@ -1,0 +1,6 @@
+archivo1 = a
+archivo1 = c
+archivo1 = e
+archivo1 = g
+archivo1 = i
+archivo1 = k
