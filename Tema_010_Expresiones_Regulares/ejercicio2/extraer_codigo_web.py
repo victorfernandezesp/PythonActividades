@@ -42,7 +42,8 @@ def main():
     if resultados is None:
         print("Esa etiqueta no esta en el codigo")
     else:
-        print(resultados[0])
+        for i in range(len(resultados)):
+            print(resultados[i])
         print(f" Número de etiquetas encontradas: {len(resultados)}")
 
 

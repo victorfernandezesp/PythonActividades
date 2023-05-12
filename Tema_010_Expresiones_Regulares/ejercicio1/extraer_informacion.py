@@ -28,7 +28,7 @@ def main():
         print(extraer_datos(patron, cadena))
 
     elif tipo == "IP":
-        patron = r'\b(?:\d{1,3}\.){3}\d{1,3}\b'
+        patron = '\d{2,3}.\d{1,3}.\d{1,3}.\d{1,3}'
         print("IP")
         print(extraer_datos(patron, cadena))
 
