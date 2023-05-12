@@ -13,7 +13,7 @@
 
             Número de etiquetas encontradas: 1
 
-            ó si ejecuto python mi programa https://example.com/ p
+            o si ejecuto python mi programa https://example.com/ p
 
             La salida sería:
 
@@ -43,8 +43,8 @@ def main():
         print("Esa etiqueta no esta en el codigo")
     else:
         for i in range(len(resultados)):
-            print(resultados[i])
-        print(f" Número de etiquetas encontradas: {len(resultados)}")
+            print(f"\n {i+1}. {resultados[i]}")
+        print(f"\n Número de etiquetas encontradas: {len(resultados)}")
 
 
 def extraer_datos(patron, cadena):
