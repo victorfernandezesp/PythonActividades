@@ -23,34 +23,34 @@ def main():
     cadena = leer_archivo(nombre_archivo)
 
     if tipo == "DNI":
-        patron = "\\d{8}[A-HJ-NP-TV-Z]"
-        print("DNI")
-        print(extraer_datos(patron, cadena))
+        patron = "\d{8}[A-HJ-NP-TV-Z]"
+        print("LISTA DE DNIs")
+        extraer_y_mostrar_datos(patron, cadena)
 
     elif tipo == "IP":
         patron = '\d{2,3}.\d{1,3}.\d{1,3}.\d{1,3}'
-        print("IP")
-        print(extraer_datos(patron, cadena))
+        print("LISTA DE IPs")
+        extraer_y_mostrar_datos(patron, cadena)
 
     elif tipo == "MAT":
-        patron = "\\d{4}[A-Z]{3}"
-        print("MAT")
-        print(extraer_datos(patron, cadena))
+        patron = "\d{4}[A-Z]{3}"
+        print("LISTA DE MATRICULAS")
+        extraer_y_mostrar_datos(patron, cadena)
 
     elif tipo == "HEX":
         patron = "#[0-9A-Fa-f]{0,6}"
-        print("HEX")
-        print(extraer_datos(patron, cadena))
+        print("LISTA DE HEXADECIMALES")
+        extraer_y_mostrar_datos(patron, cadena)
 
     elif tipo == "FEC":
-        patron = "\\d[1-31]/\\d[1-12]/\\d{4}"
-        print("FEC")
-        print(extraer_datos(patron, cadena))
+        patron = "\d[1-31]/\\d[1-12]/\\d{4}"
+        print("LISTA DE FECHAS")
+        extraer_y_mostrar_datos(patron, cadena)
 
     elif tipo == "TWT":
         patron = "@[A-Za-z0-9_-]+"
-        print("TWT")
-        print(extraer_datos(patron, cadena))
+        print("LISTA DE CUENTAS DE TWITTER")
+        extraer_y_mostrar_datos(patron, cadena)
 
     else:
         raise ValueError("El tipo tiene que ser: DNI, IP, MAT, HEX, FEC o TWT")
@@ -76,9 +76,11 @@ def leer_archivo(nombre_archivo):
     return cadena
 
 
-def extraer_datos(patron, cadena):
+def extraer_y_mostrar_datos(patron, cadena):
     import re
-    return re.findall(patron, cadena)
+    resultados = re.findall(patron, cadena)
+    for i in range(len(resultados)):
+        print(f"{i+1}. {resultados[i]}")
 
 
 if __name__ == '__main__':
