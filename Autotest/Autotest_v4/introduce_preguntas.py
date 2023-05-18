@@ -56,17 +56,9 @@ while True:
         case 1:
             crear_fichero_test()
         case 2:
-            fichero = selecciona_fichero()
-            fichero_1 = open(fichero, 'wt')
+            extension, fichero = selecciona_fichero()
         case 3:
-            try:
-                fichero_2 = open(fichero, 'wt')
-            except FileNotFoundError:
-                print("Fichero no seleccionado")
-            except PermissionError:
-                print("No tienes permisos para abrir este archivo")
-
-            anadir_preguntas(fichero_2)
+            anadir_preguntas(extension, fichero)
 
         case 4:
             print("¡Hasta la próxima ^_^!")

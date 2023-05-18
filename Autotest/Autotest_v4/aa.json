@@ -1,0 +1,48 @@
+[
+ {
+  "nombre": "a",
+  "enunciado": "a",
+  "opciones": [
+   {
+    "opcion": "a",
+    "valor": 1.0
+   },
+   {
+    "opcion": "a",
+    "valor": 1.0
+   },
+   {
+    "opcion": "a",
+    "valor": 1.0
+   },
+   {
+    "opcion": "a",
+    "valor": 1.0
+   }
+  ],
+  "puntuacion_base": 1
+ },
+ {
+  "nombre": "bbb",
+  "enunciado": "b",
+  "opciones": [
+   {
+    "opcion": "b",
+    "valor": 1.0
+   },
+   {
+    "opcion": "b",
+    "valor": 1.0
+   },
+   {
+    "opcion": "b",
+    "valor": 1.0
+   },
+   {
+    "opcion": "b",
+    "valor": 1.0
+   }
+  ],
+  "puntuacion_base": 1
+ }
+]

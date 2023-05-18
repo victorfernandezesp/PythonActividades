@@ -24,7 +24,7 @@ def selecciona_fichero():
             print("Selecciona un archivo .xml o . json")
             continue
 
-    return nombre_fichero
+    return extension, nombre_fichero
 
 if __name__ == '__main__':
     selecciona_fichero()

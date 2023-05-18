@@ -1,0 +1,20 @@
+<test>
+    <pregunta nombre="a" puntuacion_base="1">
+        <enunciado>a</enunciado>
+        <opciones>
+            <opcion valor="1">a</opcion>
+            <opcion valor="1">a</opcion>
+            <opcion valor="1">a</opcion>
+            <opcion valor="1">a</opcion>
+        </opciones>
+    </pregunta>
+    <pregunta nombre="bbb" puntuacion_base="1">
+        <enunciado>b</enunciado>
+        <opciones>
+            <opcion valor="1">b</opcion>
+            <opcion valor="1">b</opcion>
+            <opcion valor="1">b</opcion>
+            <opcion valor="1">b</opcion>
+        </opciones>
+    </pregunta>
+</test>

@@ -13,6 +13,7 @@
     Curso: 2022-2023
 """
 import os
+import xml.etree.ElementTree as ET
 
 
 def comprueba_si_existe_el_fichero(fichero):
@@ -48,8 +49,10 @@ def crear_fichero_test():
         elif ".xml" in extension:
             extension = extension[1:]
             if not comprueba_si_existe_el_fichero(nombre_fichero):
-                f = open(nombre_fichero, 'wt')
-                f.close()
+                root = ET.Element('test')
+                tree = ET.ElementTree(root)
+                with open(nombre_fichero, 'wb') as f:
+                    tree.write(f, encoding='utf-8', xml_declaration=True)
                 print(f"Fichero {nombre_fichero} creado correctamente")
                 break
             else:
@@ -58,8 +61,11 @@ def crear_fichero_test():
                     continue
                 else:
                     os.remove(nombre_fichero)
-                    f = open(nombre_fichero, 'wt')
-                    f.close()
+
+                    root = ET.Element('test')
+                    tree = ET.ElementTree(root)
+                    with open(nombre_fichero, 'wb') as f:
+                        tree.write(f, encoding='utf-8', xml_declaration=True)
                     print(f"Fichero {nombre_fichero} creado correctamente")
                     break
         else:
