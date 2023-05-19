@@ -13,6 +13,9 @@ import sys
 from Autotest.Autotest_v3.question import Question
 
 def main():
+    if len(sys.argv) != 2:
+        raise ValueError("La cantidad de argumentos es erronea")
+
     nombre_de_fichero = sys.argv[1]
     comprueba_existe_fichero(nombre_de_fichero)
 
@@ -44,5 +47,6 @@ def comprueba_existe_fichero(fichero):
     except FileNotFoundError:
         print("El archivo no existe.")
         sys.exit(1)
+
 if __name__ == '__main__':
     main()
