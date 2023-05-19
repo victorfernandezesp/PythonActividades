@@ -17,7 +17,7 @@ import json
 import os as OS
 import sys
 import xml.etree.ElementTree as ET
-from Autotest.Autotest_v3.question import Question
+from Autotest.Autotest_v4.question import Question
 
 
 def comprueba_pregunta(titulo_pregunta, enunciado_pregunta, opciones, puntuacion):
