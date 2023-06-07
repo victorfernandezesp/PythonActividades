@@ -58,7 +58,7 @@ def main():
             if j == delimitador:
                 break
             lista_pregunta.append(j)
-        titulo = lista_pregunta.pop(0)
+        nombre = lista_pregunta.pop(0)
         enunciado = ""
         num_registros_a_eliminar = 0
         for i in range(len(lista_pregunta)):
@@ -70,7 +70,7 @@ def main():
             lista_pregunta.remove(lista_pregunta[0])
 
         opciones = ([(lista_pregunta[0], float(lista_pregunta[1])), (lista_pregunta[2], float(lista_pregunta[3])), (lista_pregunta[4], float(lista_pregunta[5])), (lista_pregunta[6], float(lista_pregunta[7]))])
-        pregunta_usuario = Question(titulo, enunciado, opciones, 1)
+        pregunta_usuario = Question(nombre, enunciado, opciones, 1)
         pregunta_usuario.muestra_pregunta()
         pregunta_usuario.respuesta_usuario()
         contador_pregunta += 1
@@ -83,5 +83,4 @@ def main():
             archivo.remove(archivo[0])
 
 if __name__ == '__main__':
-    guarda_preguntas()
     main()

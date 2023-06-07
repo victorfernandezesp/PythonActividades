@@ -17,7 +17,7 @@ def main():
     with open(nombre_de_fichero, encoding='utf-8') as cadena_de_preguntas:
         archivo_sacar_preguntas = json.load(cadena_de_preguntas)
     for i in range(len(archivo_sacar_preguntas)):
-        titulo = archivo_sacar_preguntas[i]["titulo"]
+        nombre = archivo_sacar_preguntas[i]["nombre"]
         enunciado = archivo_sacar_preguntas[i]["enunciado"]
 
         opcion1 = archivo_sacar_preguntas[i]["opciones"][0]["opcion"]
@@ -33,7 +33,7 @@ def main():
         valor_opcion4 = archivo_sacar_preguntas[i]["opciones"][3]["valor"]
 
         opciones = ([(opcion1, float(valor_opcion1)), (opcion2, float(valor_opcion2)), (opcion3, float(valor_opcion3)), (opcion4, float(valor_opcion4))])
-        pregunta_usuario = Question(titulo, enunciado, opciones, 1)
+        pregunta_usuario = Question(nombre, enunciado, opciones, 1)
         pregunta_usuario.muestra_pregunta()
         pregunta_usuario.respuesta_usuario()
 

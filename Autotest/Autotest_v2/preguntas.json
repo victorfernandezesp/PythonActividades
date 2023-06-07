@@ -1,6 +1,6 @@
 [
   {
-    "titulo": "Planta vs Agua",
+    "nombre": "Planta vs Agua",
     "enunciado": "En relación con los tipos Pokemon, ¿Qué relación tiene el tipo Planta Vs Agua?",
     "opciones": [
       {
@@ -22,7 +22,7 @@
     ]
   },
   {
-    "titulo": "Normal vs Normal",
+    "nombre": "Normal vs Normal",
     "enunciado": "En relación con los tipos Pokemon, ¿Qué relación tiene el tipo Normal Vs Normal?",
     "opciones": [
       {
@@ -44,7 +44,7 @@
     ]
   },
   {
-    "titulo": "Dragon vs Hada",
+    "nombre": "Dragon vs Hada",
     "enunciado": "En relación con los tipos Pokemon, ¿Qué relación tiene el tipo Dragon Vs Hada?",
     "opciones": [
       {
@@ -66,7 +66,7 @@
     ]
   },
   {
-    "titulo": "Normal vs Fantasma",
+    "nombre": "Normal vs Fantasma",
     "enunciado": "En relación con los tipos Pokemon, ¿Qué relación tiene el tipo Normal Vs Fantasma?",
     "opciones": [
       {
@@ -88,7 +88,7 @@
     ]
   },
   {
-    "titulo": "Dragon vs Dragon",
+    "nombre": "Dragon vs Dragon",
     "enunciado": "En relación con los tipos Pokemon, ¿Qué relación tiene el tipo Dragon Vs Dragon?",
     "opciones": [
       {

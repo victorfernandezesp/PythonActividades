@@ -1,0 +1,12 @@
+<agenda>
+    <contacto nombre="Angel">
+        <telefono>987654321</telefono>
+        <correo>angelfa@gmail.com</correo>
+        <direccion>casaangel</direccion>
+    </contacto>
+    <contacto nombre="Victor">
+        <telefono>677794568</telefono>
+        <correo>vicfe@gmail.com</correo>
+        <direccion>casa</direccion>
+    </contacto>
+</agenda>

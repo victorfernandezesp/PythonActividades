@@ -1,0 +1,19 @@
+<agenda>
+    <contacto nombre="Victor">
+        <telefono>987654321</telefono>
+        <correo> a21feesvi@iesgrancapitan.org </correo>
+        <direccion> Avd. Almogávares </direccion>
+    </contacto>
+
+    <contacto nombre="Javier">
+        <telefono>776543219</telefono>
+        <correo> a21poarja@iesgrancapitan.org </correo>
+        <direccion> Avd. Arruzafilla </direccion>
+    </contacto>
+
+    <contacto nombre="Adrian">
+        <telefono>623456789</telefono>
+        <correo> a21gomaad@iesgrancapitan.org </correo>
+        <direccion> Avd. Barcelona </direccion>
+    </contacto>
+</agenda>
